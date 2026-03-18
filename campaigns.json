@@ -1,0 +1,365 @@
+{
+  "generated_at": "2026-03-18T21:43:38.681159+00:00",
+  "count": 1,
+  "campaigns": [
+    {
+      "id": 2,
+      "title": "Nation-State Actors Exploit Notepad++ Supply Chain",
+      "source_name": "Unit 42 (Palo Alto)",
+      "url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/",
+      "published_at": "Wed, 11 Fe",
+      "extracted_at": "2026-03-18",
+      "threat_actor": "Lotus Blossom",
+      "malware_family": "Chrysalis",
+      "campaign_name": "",
+      "analyst_summary": "",
+      "severity": "Critical",
+      "quality": "normal",
+      "ioc_count": 9,
+      "ttp_count": 11,
+      "sigma_count": 5,
+      "snort_count": 5,
+      "query_count": 9,
+      "caldera_count": 5,
+      "enrichment_count": 0,
+      "enrichment_sources": [],
+      "iocs": [
+        {
+          "type": "ip",
+          "value": "45[.]76[.]155[.]202",
+          "confidence": "high",
+          "context": "C2 IP address observed in August incident with beacon traffic communication.",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        },
+        {
+          "type": "ip",
+          "value": "45[.]77[.]31[.]210",
+          "confidence": "high",
+          "context": "Second C2 server IP address used after initial C2, with communication lasting until September.",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        },
+        {
+          "type": "url",
+          "value": "hxxp://45[.]76[.]155[.]202/update/update.exe",
+          "confidence": "high",
+          "context": "Download URL for malicious Lua script injection variant deploying Cobalt Strike beacon malware.",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        },
+        {
+          "type": "ip",
+          "value": "45[.]32[.]144[.]255",
+          "confidence": "high",
+          "context": "Malicious server IP address used for download attempts of Bluetooth DLL sideloading variant.",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        },
+        {
+          "type": "url",
+          "value": "hxxp://45[.]32[.]144[.]255/update/update.exe",
+          "confidence": "high",
+          "context": "Download URL for Bluetooth DLL sideloading variant deploying Chrysalis backdoor.",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        },
+        {
+          "type": "filename",
+          "value": "update.exe",
+          "confidence": "high",
+          "context": "Malicious NSIS installer often named update.exe that initiated complex infection chain.",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        },
+        {
+          "type": "filename",
+          "value": "BluetoothService.exe",
+          "confidence": "high",
+          "context": "Legitimate Bitdefender component misused to load malicious library log.dll that decrypted and executed custom backdoor.",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        },
+        {
+          "type": "filename",
+          "value": "log.dll",
+          "confidence": "high",
+          "context": "Malicious library loaded via DLL sideloading that decrypted and executed custom Chrysalis backdoor.",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        },
+        {
+          "type": "mutex",
+          "value": "Global\\Jdhfv_1.0.1",
+          "confidence": "high",
+          "context": "Mutex known to be related to the Chrysalis backdoor malware.",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        }
+      ],
+      "ttps": [
+        {
+          "technique_id": "T1195.002",
+          "technique_name": "Compromise Software Supply Chain",
+          "tactic": "Initial Access",
+          "description": "Attackers compromised the official Notepad++ hosting infrastructure to serve malicious updates to targeted users",
+          "evidence": "Between June and December 2025, the official hosting infrastructure for the text editor Notepad++ was compromised by a state-sponsored threat group known as Lotus Blossom. The attackers breached the shared hosting provider's environment. This allowed the attackers to intercept and redirect traffic destined for the Notepad++ update server.",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        },
+        {
+          "technique_id": "T1574.002",
+          "technique_name": "DLL Side-Loading",
+          "tactic": "Persistence",
+          "description": "Attackers used DLL sideloading with a legitimate Bitdefender component to load malicious library",
+          "evidence": "This chain used DLL sideloading techniques and misused a legitimate Bitdefender component (BluetoothService.exe) to load a malicious library (log.dll) that decrypted and executed a custom backdoor.",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        },
+        {
+          "technique_id": "T1574.002",
+          "technique_name": "DLL Side-Loading",
+          "tactic": "Defense Evasion",
+          "description": "Attackers used DLL sideloading with a legitimate Bitdefender component to load malicious library",
+          "evidence": "We also observed a Bluetooth DLL sideloading variant in the same case. This Lua variant uses Bluetooth service DLL sideloading techniques to deploy the Chrysalis backdoor.",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        },
+        {
+          "technique_id": "T1027.009",
+          "technique_name": "Obfuscated Files or Information: Embedded Payloads",
+          "tactic": "Defense Evasion",
+          "description": "Malicious DLL decrypted and executed custom backdoor payload",
+          "evidence": "DLL sideloading techniques and misused a legitimate Bitdefender component (BluetoothService.exe) to load a malicious library (log.dll) that decrypted and executed a custom backdoor.",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        },
+        {
+          "technique_id": "T1059.009",
+          "technique_name": "Command and Scripting Interpreter: Cloud API",
+          "tactic": "Execution",
+          "description": "Attackers utilized Lua scripts for malicious code execution",
+          "evidence": "In another infection chain, attackers utilized an NSIS installer to execute a command to run a malicious Lua script to load Cobalt Strike Beacon.",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        },
+        {
+          "technique_id": "T1027.013",
+          "technique_name": "Obfuscated Files or Information: Encrypted/Encoded File",
+          "tactic": "Defense Evasion",
+          "description": "Chrysalis malware employed custom API hashing to reduce antivirus detection",
+          "evidence": "This malware, called Chrysalis, employed advanced evasion techniques. These included: Custom API hashing to reduce antivirus detection",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        },
+        {
+          "technique_id": "T1071.001",
+          "technique_name": "Application Layer Protocol: Web Protocols",
+          "tactic": "Command and Control",
+          "description": "Malware communicated with C2 servers over web protocols",
+          "evidence": "In an August incident, we observed communication with a command-and-control (C2) IP address 45.76.155[.]202. After days of C2 beacon traffic to this IP address, attackers shifted to a second C2 server at 45.77.31[.]210",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        },
+        {
+          "technique_id": "T1036.005",
+          "technique_name": "Masquerading: Match Legitimate Name or Location",
+          "tactic": "Defense Evasion",
+          "description": "Malicious installer named to appear as legitimate update file",
+          "evidence": "When targeted victims attempted to update their software, they downloaded a malicious NSIS installer. This installer \u2014 often named update.exe",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        },
+        {
+          "technique_id": "T1055",
+          "technique_name": "Process Injection",
+          "tactic": "Defense Evasion",
+          "description": "Lua script injection used to inject shellcode and deliver Cobalt Strike",
+          "evidence": "In September and October 2025, we observed a Lua script injection variant deploying malicious Lua scripts to inject shellcode. This attack used the EnumWindowStationsW API and resulted in the delivery of Cobalt Strike beacon malware.",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        },
+        {
+          "technique_id": "T1055",
+          "technique_name": "Process Injection",
+          "tactic": "Privilege Escalation",
+          "description": "Lua script injection used to inject shellcode and deliver Cobalt Strike",
+          "evidence": "In September and October 2025, we observed a Lua script injection variant deploying malicious Lua scripts to inject shellcode. This attack used the EnumWindowStationsW API and resulted in the delivery of Cobalt Strike beacon malware.",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        },
+        {
+          "technique_id": "T1480.001",
+          "technique_name": "Execution Guardrails: Environmental Keying",
+          "tactic": "Defense Evasion",
+          "description": "Malware used mutex to ensure single instance execution",
+          "evidence": "Identifies a Mutex known to be related to the chrysalis backdoor malware... filter mutex = 'Global\\Jdhfv_1.0.1'",
+          "source_url": "https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/"
+        }
+      ],
+      "sigma_rules": [
+        {
+          "rule": "title: Chrysalis Backdoor Mutex Detection\nid: rule-0001\nstatus: experimental\ndescription: Detects creation of mutex associated with Chrysalis backdoor malware used by Lotus Blossom threat actor\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    - CommandLine|contains: 'Global\\Jdhfv_1.0.1'\n    - Image|endswith:\n      - '\\BluetoothService.exe'\n      - '\\update.exe'\n  condition: selection\nfalsepositives:\n  - Unlikely, mutex name is highly specific to this malware family\nlevel: critical",
+          "plain_english": "",
+          "rule_hash": "287235828aaf55e4"
+        },
+        {
+          "rule": "title: DLL Sideloading via Bitdefender BluetoothService Component\nid: rule-0002\nstatus: experimental\ndescription: Detects DLL sideloading attack using legitimate Bitdefender BluetoothService.exe to load malicious log.dll associated with Chrysalis backdoor\nlogsource:\n  product: windows\n  category: image_load\ndetection:\n  selection:\n    Image|endswith: '\\BluetoothService.exe'\n    ImageLoaded|endswith: '\\log.dll'\n  filter_legitimate:\n    ImageLoaded|startswith:\n      - 'C:\\Program Files\\Bitdefender\\'\n      - 'C:\\Program Files (x86)\\Bitdefender\\'\n  condition: selection and not filter_legitimate\nfalsepositives:\n  - Legitimate Bitdefender installations with custom log.dll in proper directories\nlevel: high",
+          "plain_english": "",
+          "rule_hash": "0e400828155e10c5"
+        },
+        {
+          "rule": "title: Suspicious Update.exe NSIS Installer Execution\nid: rule-0003\nstatus: experimental\ndescription: Detects execution of update.exe NSIS installer associated with Notepad++ supply chain compromise by Lotus Blossom\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '\\update.exe'\n    CommandLine|contains:\n      - '/S'\n      - '/NCRC'\n  filter_legitimate:\n    Image|startswith:\n      - 'C:\\Program Files\\'\n      - 'C:\\Program Files (x86)\\'\n    ParentImage|endswith:\n      - '\\notepad++.exe'\n      - '\\GUP.exe'\n  condition: selection and not filter_legitimate\nfalsepositives:\n  - Legitimate software updates from trusted locations\n  - Administrative software deployment\nlevel: high",
+          "plain_english": "",
+          "rule_hash": "3cf5ceb9982ce6e3"
+        },
+        {
+          "rule": "title: Lua Script Injection with EnumWindowStationsW API for Shellcode Execution\nid: rule-0004\nstatus: experimental\ndescription: Detects Lua script injection variant using EnumWindowStationsW API to inject shellcode and deliver Cobalt Strike beacon\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    CallTrace|contains: 'EnumWindowStationsW'\n    SourceImage|endswith:\n      - '\\lua.exe'\n      - '\\lua5.1.exe'\n      - '\\lua5.3.exe'\n  condition: selection\nfalsepositives:\n  - Legitimate Lua-based applications using window enumeration\n  - Development and testing environments\nlevel: high",
+          "plain_english": "",
+          "rule_hash": "6d5c636e68a691ab"
+        },
+        {
+          "rule": "title: Network Connection to Lotus Blossom C2 Infrastructure\nid: rule-0005\nstatus: experimental\ndescription: Detects network connections to known Lotus Blossom C2 servers associated with Chrysalis backdoor and Notepad++ supply chain compromise\nlogsource:\n  product: windows\n  category: network_connection\ndetection:\n  selection:\n    DestinationIp:\n      - '45.76.155.202'\n      - '45.77.31.210'\n      - '45.32.144.255'\n  condition: selection\nfalsepositives:\n  - None expected, these are confirmed malicious infrastructure\nlevel: critical",
+          "plain_english": "",
+          "rule_hash": "aa66b8f0d6c1403f"
+        }
+      ],
+      "snort_rules": [
+        {
+          "rule": "alert tcp $HOME_NET any -> [45.76.155.202,45.77.31.210,45.32.144.255] any (msg:\"MALWARE Lotus Blossom Chrysalis C2 Beacon Traffic\"; flow:established,to_server; reference:url,unit42.paloaltonetworks.com/notepad-infrastructure-compromise/; classtype:trojan-activity; sid:9200001; rev:1; metadata:attack_target Client_Endpoint, deployment Perimeter, signature_severity Critical, created_at 2025-01-21, performance_impact Low, affected_product Windows;)",
+          "plain_english": "",
+          "rule_hash": "e5e6fab3b0c0f631"
+        },
+        {
+          "rule": "alert http $HOME_NET any -> [45.76.155.202,45.32.144.255] any (msg:\"MALWARE Lotus Blossom Malicious Update.exe Download Request\"; flow:established,to_server; http.method; content:\"GET\"; http.uri; content:\"/update/update.exe\"; fast_pattern; reference:url,unit42.paloaltonetworks.com/notepad-infrastructure-compromise/; classtype:trojan-activity; sid:9200002; rev:1; metadata:attack_target Client_Endpoint, deployment Perimeter, signature_severity Critical, created_at 2025-01-21, performance_impact Low, affected_product Windows;)",
+          "plain_english": "",
+          "rule_hash": "ffc11465bd347e7a"
+        },
+        {
+          "rule": "alert http any any -> $HOME_NET any (msg:\"MALWARE Lotus Blossom Chrysalis Backdoor HTTP C2 Communication\"; flow:established,to_client; http.header; content:\"Content-Type\"; nocase; pcre:\"/Content-Type:\\s*application\\x2f(octet-stream|x-msdownload)/i\"; reference:url,unit42.paloaltonetworks.com/notepad-infrastructure-compromise/; classtype:trojan-activity; sid:9200003; rev:1; metadata:attack_target Client_Endpoint, deployment Perimeter, signature_severity High, created_at 2025-01-21, performance_impact Moderate, affected_product Windows;)",
+          "plain_english": "",
+          "rule_hash": "24295337c1bdf818"
+        },
+        {
+          "rule": "alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS (msg:\"MALWARE Potential Cobalt Strike Beacon via Lua Script Injection\"; flow:established,to_server; content:\"|00 00|\"; depth:2; content:\"|00 00|\"; distance:2; within:2; threshold:type both, track by_src, count 5, seconds 60; reference:url,unit42.paloaltonetworks.com/notepad-infrastructure-compromise/; classtype:trojan-activity; sid:9200004; rev:1; metadata:attack_target Client_Endpoint, deployment Perimeter, signature_severity High, created_at 2025-01-21, performance_impact Moderate, affected_product Windows;)",
+          "plain_english": "",
+          "rule_hash": "3f7f9d69ca5149ac"
+        },
+        {
+          "rule": "alert dns $HOME_NET any -> any 53 (msg:\"MALWARE DNS Query to Lotus Blossom C2 Infrastructure\"; dns.query; content:\"45.76.155.202\"; fast_pattern; nocase; reference:url,unit42.paloaltonetworks.com/notepad-infrastructure-compromise/; classtype:trojan-activity; sid:9200005; rev:1; metadata:attack_target Client_Endpoint, deployment Perimeter, signature_severity Critical, created_at 2025-01-21, performance_impact Low, affected_product Windows;)",
+          "plain_english": "",
+          "rule_hash": "91afab0cef031ec1"
+        }
+      ],
+      "hunting_queries": {
+        "splunk": [
+          {
+            "name": "Chrysalis C2 Communication Detection",
+            "description": "Detects network connections to known Lotus Blossom C2 infrastructure",
+            "query": "index=* (dest_ip IN (\"45.76.155.202\", \"45.77.31.210\", \"45.32.144.255\") OR dest IN (\"45.76.155.202\", \"45.77.31.210\", \"45.32.144.255\")) | stats count by src_ip, dest_ip, dest_port, action | where count > 5"
+          },
+          {
+            "name": "Malicious DLL Sideloading with BluetoothService",
+            "description": "Identifies DLL sideloading attempts using legitimate Bitdefender BluetoothService.exe loading suspicious log.dll",
+            "query": "index=* (EventCode=7 OR sourcetype=sysmon) (Image=\"*BluetoothService.exe*\" OR ParentImage=\"*BluetoothService.exe*\") (ImageLoaded=\"*log.dll*\" OR CommandLine=\"*log.dll*\") | stats count by ComputerName, Image, ImageLoaded, User"
+          },
+          {
+            "name": "Chrysalis Mutex and Malicious Update.exe Detection",
+            "description": "Hunts for Chrysalis backdoor mutex creation and suspicious update.exe execution patterns",
+            "query": "index=* (EventCode IN (1,12,13) OR sourcetype=sysmon) (\"Global\\\\Jdhfv_1.0.1\" OR (Image=\"*update.exe*\" AND (CommandLine=\"*lua*\" OR CommandLine=\"*BluetoothService*\"))) | stats count by ComputerName, Image, CommandLine, TargetObject"
+          }
+        ],
+        "kql": [
+          {
+            "name": "Lotus Blossom Network Connections to C2 Infrastructure",
+            "description": "Detects outbound connections to known Chrysalis C2 servers",
+            "query": "DeviceNetworkEvents | where RemoteIP in ('45.76.155.202', '45.77.31.210', '45.32.144.255') or RemoteUrl has_any ('45.76.155.202', '45.77.31.210', '45.32.144.255') | summarize ConnectionCount=count(), FirstSeen=min(Timestamp), LastSeen=max(Timestamp) by DeviceName, InitiatingProcessFileName, RemoteIP, RemotePort | where ConnectionCount > 3"
+          },
+          {
+            "name": "DLL Sideloading via BluetoothService.exe",
+            "description": "Identifies suspicious DLL loading patterns associated with Chrysalis backdoor deployment",
+            "query": "DeviceImageLoadEvents | where InitiatingProcessFileName =~ 'BluetoothService.exe' and FileName =~ 'log.dll' | join kind=inner (DeviceProcessEvents | where FileName =~ 'BluetoothService.exe' and FolderPath !startswith 'C:\\\\Program Files\\\\Bitdefender') on DeviceId, InitiatingProcessId | project Timestamp, DeviceName, FolderPath, InitiatingProcessCommandLine, InitiatingProcessFolderPath"
+          },
+          {
+            "name": "Suspicious Update.exe with Lua Script Execution",
+            "description": "Detects malicious NSIS installer named update.exe spawning Lua script processes or creating Chrysalis mutex",
+            "query": "DeviceProcessEvents | where FileName =~ 'update.exe' and (ProcessCommandLine has_any ('lua', 'BluetoothService', '.lua') or ProcessCommandLine has 'EnumWindowStationsW') | extend MutexCheck = (InitiatingProcessFileName has 'Global\\\\Jdhfv_1.0.1') | project Timestamp, DeviceName, FileName, ProcessCommandLine, InitiatingProcessFileName, FolderPath"
+          }
+        ],
+        "eql": [
+          {
+            "name": "Chrysalis DLL Sideloading Attack Chain",
+            "description": "Detects full DLL sideloading sequence from update.exe to BluetoothService.exe loading malicious log.dll",
+            "query": "sequence by ComputerName with maxspan=5m [process where event_id == 1 and process_name == \"update.exe\"] [process where event_id == 1 and process_name == \"BluetoothService.exe\" and parent_process_name == \"update.exe\"] [library where event_id == 7 and file_name == \"log.dll\" and process_name == \"BluetoothService.exe\"]"
+          },
+          {
+            "name": "Lua Script Injection and Cobalt Strike Beacon Deployment",
+            "description": "Identifies Lua script execution followed by suspicious network connections indicative of Cobalt Strike beacon",
+            "query": "sequence by ComputerName with maxspan=10m [process where event_id == 1 and (process_name == \"update.exe\" or command_line matches \".*\\\\.lua.*\")] [network where event_id == 3 and (destination_address == \"45.76.155.202\" or destination_address == \"45.77.31.210\" or destination_address == \"45.32.144.255\")]"
+          },
+          {
+            "name": "Chrysalis Mutex Creation with C2 Communication",
+            "description": "Correlates Chrysalis backdoor mutex creation with subsequent C2 beacon traffic",
+            "query": "sequence by ComputerName with maxspan=15m [registry where event_id in (12, 13) and registry_path matches \".*Global\\\\\\\\Jdhfv_1\\\\.0\\\\.1.*\"] [network where event_id == 3 and (destination_address in (\"45.76.155.202\", \"45.77.31.210\", \"45.32.144.255\") and destination_port in (80, 443, 8080))]"
+          }
+        ]
+      },
+      "caldera_scenario": {
+        "adversary": {
+          "id": "lotus-blossom-chrysalis",
+          "name": "Lotus Blossom - Chrysalis",
+          "description": "State-sponsored threat group Lotus Blossom compromised Notepad++ hosting infrastructure between June-December 2025 to deliver the Chrysalis backdoor and Cobalt Strike via malicious updates. Attack chains utilized DLL side-loading with legitimate signed binaries, Lua script injection, and advanced evasion techniques targeting software supply chain vulnerabilities.",
+          "tags": [
+            "apt",
+            "supply-chain",
+            "state-sponsored",
+            "backdoor"
+          ]
+        },
+        "abilities": [
+          {
+            "id": "lb-chrysalis-001",
+            "name": "Simulate DLL Side-Loading with Legitimate Binary",
+            "description": "Simulates DLL side-loading technique using a legitimate appearing executable to load malicious DLL, mimicking Bitdefender BluetoothService.exe abuse",
+            "tactic": "defense-evasion",
+            "technique_id": "T1574.002",
+            "technique_name": "DLL Side-Loading",
+            "platform": "windows",
+            "command": "powershell.exe -Command \"Write-Host '[SIM] Placing benign executable LegitimateService.exe'; New-Item -Path '$env:TEMP\\LegitimateService.exe' -ItemType File -Force | Out-Null; Write-Host '[SIM] Creating sideload DLL log.dll in same directory'; New-Item -Path '$env:TEMP\\log.dll' -ItemType File -Force | Out-Null; Write-Host '[SIM] DLL side-loading simulation complete - would load malicious payload'\"",
+            "cleanup": "powershell.exe -Command \"Remove-Item -Path '$env:TEMP\\LegitimateService.exe' -Force -ErrorAction SilentlyContinue; Remove-Item -Path '$env:TEMP\\log.dll' -Force -ErrorAction SilentlyContinue; Write-Host '[SIM] Cleanup: Removed simulated side-loading files'\"",
+            "rule_hash": "8a454f95780b6a1b"
+          },
+          {
+            "id": "lb-chrysalis-002",
+            "name": "Simulate Malicious Software Update Delivery",
+            "description": "Simulates masquerading as legitimate software update installer, mimicking compromised Notepad++ update mechanism",
+            "tactic": "defense-evasion",
+            "technique_id": "T1036.005",
+            "technique_name": "Masquerading: Match Legitimate Name or Location",
+            "platform": "windows",
+            "command": "powershell.exe -Command \"Write-Host '[SIM] Creating masqueraded update installer'; New-Item -Path '$env:TEMP\\update.exe' -ItemType File -Force | Out-Null; Set-Content -Path '$env:TEMP\\update.exe' -Value '[SIM] Malicious NSIS installer payload'; Write-Host '[SIM] Installer masquerading as legitimate software update'\"",
+            "cleanup": "powershell.exe -Command \"Remove-Item -Path '$env:TEMP\\update.exe' -Force -ErrorAction SilentlyContinue; Write-Host '[SIM] Cleanup: Removed masqueraded installer'\"",
+            "rule_hash": "f9242bd461315ccc"
+          },
+          {
+            "id": "lb-chrysalis-003",
+            "name": "Simulate Encrypted Payload Decryption",
+            "description": "Simulates decryption of embedded encrypted payload using custom API hashing techniques for evasion",
+            "tactic": "defense-evasion",
+            "technique_id": "T1027.009",
+            "technique_name": "Obfuscated Files or Information: Embedded Payloads",
+            "platform": "windows",
+            "command": "powershell.exe -Command \"Write-Host '[SIM] Creating encrypted payload file'; $encPayload = 'U2ltdWxhdGVkRW5jcnlwdGVkUGF5bG9hZA=='; Set-Content -Path '$env:TEMP\\encrypted_payload.dat' -Value $encPayload; Write-Host '[SIM] Simulating custom API hash-based decryption'; $decoded = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encPayload)); Write-Host '[SIM] Decrypted payload (would execute Chrysalis backdoor): $decoded'\"",
+            "cleanup": "powershell.exe -Command \"Remove-Item -Path '$env:TEMP\\encrypted_payload.dat' -Force -ErrorAction SilentlyContinue; Write-Host '[SIM] Cleanup: Removed encrypted payload file'\"",
+            "rule_hash": "3ee8b31f0b0c77a7"
+          },
+          {
+            "id": "lb-chrysalis-004",
+            "name": "Simulate Lua Script Execution",
+            "description": "Simulates execution of malicious Lua script for shellcode injection, mimicking Cobalt Strike delivery mechanism",
+            "tactic": "execution",
+            "technique_id": "T1059.009",
+            "technique_name": "Command and Scripting Interpreter: Cloud API",
+            "platform": "windows",
+            "command": "powershell.exe -Command \"Write-Host '[SIM] Creating malicious Lua script'; $luaScript = 'print(\\\"[SIM] Lua shellcode injection\\\")'; Set-Content -Path '$env:TEMP\\malicious.lua' -Value $luaScript; Write-Host '[SIM] Executing Lua script via interpreter'; Write-Host '[SIM] EnumWindowStationsW API called for injection'; Write-Host '[SIM] Cobalt Strike beacon deployment simulated'\"",
+            "cleanup": "powershell.exe -Command \"Remove-Item -Path '$env:TEMP\\malicious.lua' -Force -ErrorAction SilentlyContinue; Write-Host '[SIM] Cleanup: Removed Lua script file'\"",
+            "rule_hash": "4a759a2a537edffe"
+          },
+          {
+            "id": "lb-chrysalis-005",
+            "name": "Simulate C2 Communication Over HTTP",
+            "description": "Simulates command and control beacon traffic to remote server over web protocols",
+            "tactic": "command-and-control",
+            "technique_id": "T1071.001",
+            "technique_name": "Application Layer Protocol: Web Protocols",
+            "platform": "windows",
+            "command": "powershell.exe -Command \"Write-Host '[SIM] Initiating C2 beacon communication'; Write-Host '[SIM] Connecting to C2 server 45.76.155[.]202 (simulated)'; Write-Host '[SIM] Sending HTTP POST beacon with system info'; Write-Host '[SIM] C2 response received - awaiting commands'; Write-Host '[SIM] Fallback C2 server 45.77.31[.]210 registered'\"",
+            "cleanup": "powershell.exe -Command \"Write-Host '[SIM] Cleanup: C2 communication terminated'\"",
+            "rule_hash": "e790b06726f90748"
+          }
+        ]
+      }
+    }
+  ]
+}

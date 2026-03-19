@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-19T15:10:45.250831+00:00",
-  "count": 6,
+  "generated_at": "2026-03-19T18:06:22.409803+00:00",
+  "count": 5,
   "campaigns": [
     {
       "id": 7,
@@ -578,34 +578,6 @@
           }
         ]
       }
-    },
-    {
-      "id": 6,
-      "title": "The CISO's Guide: From VPN Replacement to Comprehensive ZTNA",
-      "source_name": "CERT-UA",
-      "url": "https://thehackernews.com/2025/04/cert-ua-reports-cyberattacks-targeting.html",
-      "published_at": "2026-03-17",
-      "extracted_at": "2026-03-19",
-      "threat_actor": "",
-      "malware_family": "",
-      "campaign_name": "",
-      "analyst_summary": "",
-      "severity": "Medium",
-      "quality": "skipped_triage",
-      "ioc_count": 0,
-      "ttp_count": 0,
-      "sigma_count": 0,
-      "snort_count": 0,
-      "query_count": 0,
-      "caldera_count": 0,
-      "enrichment_count": 0,
-      "enrichment_sources": [],
-      "iocs": [],
-      "ttps": [],
-      "sigma_rules": [],
-      "snort_rules": [],
-      "hunting_queries": {},
-      "caldera_scenario": {}
     },
     {
       "id": 5,

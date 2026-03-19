@@ -1,7 +1,2419 @@
 {
-  "generated_at": "2026-03-18T22:27:14.655409+00:00",
-  "count": 1,
+  "generated_at": "2026-03-19T15:10:45.250831+00:00",
+  "count": 6,
   "campaigns": [
+    {
+      "id": 7,
+      "title": "Suspected China-Based Espionage Operation Against Military Targets in Southeast Asia",
+      "source_name": "Unit 42 (Palo Alto)",
+      "url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/",
+      "published_at": "Thu, 12 Ma",
+      "extracted_at": "2026-03-19",
+      "threat_actor": "CL-STA-1087",
+      "malware_family": "AppleChris",
+      "campaign_name": "CL-STA-1087",
+      "analyst_summary": "CL-STA-1087 deployed AppleChris backdoor using DLL side-loading (T1574.002) to establish persistence via Windows services (T1543.003) and maintain command-and-control through PowerShell-based reverse shells. The malware, identified by its distinctive mutex \"0XFEXYCDAPPLE05CHRIS,\" communicates with multiple C2 infrastructure nodes including 154.39.142.177 and 8.212.169.27 using web protocols. The campaign leverages PowerShell execution (T1059.001) and service-based execution (T1569.002) for initial compromise and maintaining access to victim environments.",
+      "severity": "Critical",
+      "quality": "enriched",
+      "ioc_count": 17,
+      "ttp_count": 28,
+      "sigma_count": 5,
+      "snort_count": 5,
+      "query_count": 9,
+      "caldera_count": 5,
+      "enrichment_count": 3,
+      "enrichment_sources": [
+        {
+          "url": "https://www.geeksforgeeks.org/ethical-hacking/indicators-of-compromise-iocs-lab/",
+          "name": "geeksforgeeks.org",
+          "text_length": 8000
+        },
+        {
+          "url": "https://aviatrix.ai/threat-research-center/chinese-hackers-target-southeast-asian-militaries-with-applechris-and-memfun-malware/",
+          "name": "aviatrix.ai",
+          "text_length": 8000
+        },
+        {
+          "url": "https://www.rfc-editor.org/rfc/rfc9424.pdf",
+          "name": "rfc-editor.org",
+          "text_length": 8000
+        }
+      ],
+      "iocs": [
+        {
+          "type": "ip",
+          "value": "154[.]39[.]142[.]177",
+          "confidence": "high",
+          "context": "The PowerShell scripts were designed to create reverse shells to one of four command and control (C2) servers.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "type": "ip",
+          "value": "154[.]39[.]137[.]203",
+          "confidence": "high",
+          "context": "The PowerShell scripts were designed to create reverse shells to one of four command and control (C2) servers.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "type": "ip",
+          "value": "8[.]212[.]169[.]27",
+          "confidence": "high",
+          "context": "The PowerShell scripts were designed to create reverse shells to one of four command and control (C2) servers.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "type": "ip",
+          "value": "109[.]248[.]24[.]177",
+          "confidence": "high",
+          "context": "The PowerShell scripts were designed to create reverse shells to one of four command and control (C2) servers.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "type": "mutex",
+          "value": "0XFEXYCDAPPLE05CHRIS",
+          "confidence": "high",
+          "context": "We named this backdoor AppleChris, after the 0XFEXYCDAPPLE05CHRIS mutex that forms part of the malware infection chain.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "type": "filename",
+          "value": "swrpv.sys",
+          "confidence": "high",
+          "context": "The initial iteration represents the earlier development phase, with the filename swrpv.sys for the Dropbox variant of AppleChris.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "type": "filename",
+          "value": "update.exe",
+          "confidence": "high",
+          "context": "The more recent Tunneler variant with expanded capabilities uses the name update.exe.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "type": "filename",
+          "value": "GoogleUpdate.exe",
+          "confidence": "high",
+          "context": "MemFun is multi-stage malware that consists of three components including an initial loader named GoogleUpdate.exe.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "type": "filename",
+          "value": "swprv32.sys",
+          "confidence": "high",
+          "context": "The attackers performed DLL hijacking by placing the malicious swprv32.sys AppleChris DLL in the system32 directory.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "type": "domain",
+          "value": "suspicious-example[.]test",
+          "confidence": "low",
+          "context": "Example domain used in IoC triage training table as a suspicious domain for educational purposes.",
+          "source_url": "https://www.geeksforgeeks.org/ethical-hacking/indicators-of-compromise-iocs-lab/",
+          "from_enrichment": true
+        },
+        {
+          "type": "ip",
+          "value": "198[.]51[.]100[.]23",
+          "confidence": "low",
+          "context": "Example IP address used in IoC handling table and log hunting training, described as attacker server or C2 beacon.",
+          "source_url": "https://www.geeksforgeeks.org/ethical-hacking/indicators-of-compromise-iocs-lab/",
+          "from_enrichment": true
+        },
+        {
+          "type": "url",
+          "value": "hxxp://updates[.]example/installer[.]exe",
+          "confidence": "low",
+          "context": "Example URL for malicious file download link used in IoC classification training.",
+          "source_url": "https://www.geeksforgeeks.org/ethical-hacking/indicators-of-compromise-iocs-lab/",
+          "from_enrichment": true
+        },
+        {
+          "type": "ip",
+          "value": "192[.]0[.]2[.]50",
+          "confidence": "low",
+          "context": "IP address appearing in phishing email header example in Received header from mailgw1.example.net.",
+          "source_url": "https://www.geeksforgeeks.org/ethical-hacking/indicators-of-compromise-iocs-lab/",
+          "from_enrichment": true
+        },
+        {
+          "type": "ip",
+          "value": "203[.]0[.]113[.]77",
+          "confidence": "low",
+          "context": "IP address in phishing email header example appearing in Received header from unknown HELO laptop.",
+          "source_url": "https://www.geeksforgeeks.org/ethical-hacking/indicators-of-compromise-iocs-lab/",
+          "from_enrichment": true
+        },
+        {
+          "type": "domain",
+          "value": "it-help@example[.]net",
+          "confidence": "low",
+          "context": "Spoofed sender email domain in phishing email header training example from IT Support.",
+          "source_url": "https://www.geeksforgeeks.org/ethical-hacking/indicators-of-compromise-iocs-lab/",
+          "from_enrichment": true
+        },
+        {
+          "type": "domain",
+          "value": "noreply[.]suspicious@example[.]net",
+          "confidence": "low",
+          "context": "Suspicious Reply-To and Return-Path address in phishing email header training example.",
+          "source_url": "https://www.geeksforgeeks.org/ethical-hacking/indicators-of-compromise-iocs-lab/",
+          "from_enrichment": true
+        },
+        {
+          "type": "url",
+          "value": "hxxp://suspicious-example[.]test/reset",
+          "confidence": "low",
+          "context": "Suspicious password reset link in phishing email training example body content.",
+          "source_url": "https://www.geeksforgeeks.org/ethical-hacking/indicators-of-compromise-iocs-lab/",
+          "from_enrichment": true
+        }
+      ],
+      "ttps": [
+        {
+          "technique_id": "T1059.001",
+          "technique_name": "PowerShell",
+          "tactic": "Execution",
+          "description": "Attackers executed malicious PowerShell scripts remotely across selected systems to create reverse shells to C2 servers",
+          "evidence": "Cortex XDR agents, newly deployed across the environment, detected suspicious PowerShell activity indicating an existing compromise. The detection revealed an ongoing attack targeting multiple endpoints within the network. Attackers established persistence on an unmanaged endpoint that they used to execute malicious PowerShell scripts remotely across selected systems.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1071.001",
+          "technique_name": "Web Protocols",
+          "tactic": "Command and Control",
+          "description": "Malware used HTTP GET requests with custom HTTP verbs for C2 communications",
+          "evidence": "Each command response utilizes custom HTTP requests as communication parameters (PUT, POT, DPF, UPF, CPF, LPF) to facilitate command tracking and response handling.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1574.002",
+          "technique_name": "DLL Side-Loading",
+          "tactic": "Privilege Escalation",
+          "description": "DLL hijacking allowed malware to leverage elevated privileges through Volume Shadow Copy Service",
+          "evidence": "The attackers performed DLL hijacking by placing the malicious swprv32.sys AppleChris DLL in the system32 directory. Subsequently, they established persistence by registering the malicious DLL as a component of the Volume Shadow Copy Service. This allowed the malware to leverage elevated privileges while masquerading as a legitimate Windows process to evade detection.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1569.002",
+          "technique_name": "Service Execution",
+          "tactic": "Execution",
+          "description": "Attackers created new service to facilitate payload execution",
+          "evidence": "To establish persistence, the attackers created a new service to facilitate payload execution.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1543.003",
+          "technique_name": "Windows Service",
+          "tactic": "Persistence",
+          "description": "Attackers created new service to establish persistence and facilitate payload execution",
+          "evidence": "To establish persistence, the attackers created a new service to facilitate payload execution.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1047",
+          "technique_name": "Windows Management Instrumentation",
+          "tactic": "Execution",
+          "description": "Attackers used WMI to deploy malware to additional endpoints across the network",
+          "evidence": "From this initial foothold, the attackers orchestrated a systematic spread across the network. They used a combination of Windows Management Instrumentation (WMI) and native Windows .NET commands to deploy malware to additional endpoints.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1021.006",
+          "technique_name": "Windows Remote Management",
+          "tactic": "Lateral Movement",
+          "description": "Attackers orchestrated systematic spread across network using WMI and .NET commands to deploy malware",
+          "evidence": "From this initial foothold, the attackers orchestrated a systematic spread across the network. They used a combination of Windows Management Instrumentation (WMI) and native Windows .NET commands to deploy malware to additional endpoints.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1027.013",
+          "technique_name": "Encrypted/Encoded File",
+          "tactic": "Defense Evasion",
+          "description": "C2 IP address retrieved from Pastebin underwent Base64 decoding and RSA-1024 decryption",
+          "evidence": "The retrieved content undergoes a two-stage decryption process: The raw text is Base64-decoded. The decoded text is decrypted using an embedded RSA-1024 private key.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1573.001",
+          "technique_name": "Symmetric Cryptography",
+          "tactic": "Command and Control",
+          "description": "Server response payload was decrypted using AES with session ID-based key",
+          "evidence": "The server's response contains the command payload, which is then decrypted using AES. The 10-byte session ID, padded with 14 zeros, serves as the key.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1573.002",
+          "technique_name": "Asymmetric Cryptography",
+          "tactic": "Command and Control",
+          "description": "Registration data was RSA-encrypted before transmission to C2 server",
+          "evidence": "The malware generates a 10-byte random sequence as a unique session identifier, which is concatenated with the computer name and hex-encoded MAC address. This registration data is RSA-encrypted and transmitted to the C2 server within the payload of an HTTP GET request.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1497.003",
+          "technique_name": "Time Based Evasion",
+          "tactic": "Defense Evasion",
+          "description": "Malware variants employed sleep timers of 30-120 seconds to outlast automated sandbox monitoring windows",
+          "evidence": "To bypass automated security systems, some of the malware variants employ sandbox evasion tactics at runtime. These variants trigger delayed execution through sleep timers of 30 seconds (EXE) and 120 seconds (DLL), effectively outlasting the typical monitoring windows of automated sandboxes.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1140",
+          "technique_name": "Deobfuscate/Decode Files or Information",
+          "tactic": "Defense Evasion",
+          "description": "Retrieved Pastebin content was Base64-decoded and RSA-decrypted to obtain C2 IP",
+          "evidence": "The backdoor accesses a specific Pastebin URL to retrieve the encrypted C2 IP address. The retrieved content undergoes a two-stage decryption process: The raw text is Base64-decoded. The decoded text is decrypted using an embedded RSA-1024 private key.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1102.001",
+          "technique_name": "Dead Drop Resolver",
+          "tactic": "Command and Control",
+          "description": "Backdoors used Pastebin and Dropbox accounts as dead drop resolvers to dynamically resolve C2 server IP addresses",
+          "evidence": "Both backdoors use the same Pastebin repository to resolve their respective C2 addresses. AppleChris employs a DDR technique to dynamically resolve its C2 server IP address. The Dropbox variant implements a dual DDR approach: Using an attacker-controlled Dropbox account as the primary DDR source, Falling back to a Pastebin-based DDR as a secondary option.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1057",
+          "technique_name": "Process Discovery",
+          "tactic": "Discovery",
+          "description": "Malware implements command dispatcher with process enumeration capability",
+          "evidence": "The malware implements a comprehensive command dispatcher that interprets single-byte command identifiers to execute a wide range of backdoor functionality, including: Process enumeration.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1005",
+          "technique_name": "Data from Local System",
+          "tactic": "Collection",
+          "description": "Attackers conducted selective searches for sensitive files related to military operations and organizational structures",
+          "evidence": "After moving laterally through the network and establishing persistence, the attackers began to collect data. We observed highly selective searches for sensitive files related to: Official meeting records, Joint military activities, Detailed assessments of operational capabilities. The attackers showed particular interest in files related to military organizational structures and strategy.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1083",
+          "technique_name": "File and Directory Discovery",
+          "tactic": "Discovery",
+          "description": "Malware command dispatcher includes drive enumeration and directory listing capabilities",
+          "evidence": "The malware implements a comprehensive command dispatcher that interprets single-byte command identifiers to execute a wide range of backdoor functionality, including: Drive enumeration, Directory listing.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1105",
+          "technique_name": "Ingress Tool Transfer",
+          "tactic": "Command and Control",
+          "description": "Malware supports file upload and download commands; MemFun downloads additional DLL payload from C2 server",
+          "evidence": "The malware implements a comprehensive command dispatcher that interprets single-byte command identifiers to execute a wide range of backdoor functionality, including: File upload, download and deletion. After the initial dropper execution, the entire attack chain operates in memory, employing evasion techniques and reflective loading. The loader's primary purpose is to establish communication with the C2 server and download an additional DLL.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1059",
+          "technique_name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "description": "Malware supports remote shell execution capability",
+          "evidence": "The malware implements a comprehensive command dispatcher that interprets single-byte command identifiers to execute a wide range of backdoor functionality, including: Remote shell execution.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1620",
+          "technique_name": "Reflective Code Loading",
+          "tactic": "Defense Evasion",
+          "description": "MemFun attack chain operates in memory employing reflective loading techniques",
+          "evidence": "After the initial dropper execution, the entire attack chain operates in memory, employing evasion techniques and reflective loading.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1027",
+          "technique_name": "Obfuscated Files or Information",
+          "tactic": "Defense Evasion",
+          "description": "PowerShell script content was decoded before execution",
+          "evidence": "The decoded PowerShell script that was passed as a command-line argument.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1055",
+          "technique_name": "Process Injection",
+          "tactic": "Defense Evasion",
+          "description": "Malware supports silent process creation capability",
+          "evidence": "The malware implements a comprehensive command dispatcher that interprets single-byte command identifiers to execute a wide range of backdoor functionality, including: Silent process creation.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1090",
+          "technique_name": "Proxy",
+          "tactic": "Command and Control",
+          "description": "Tunneler variant supports command to activate proxy tunneling module",
+          "evidence": "In addition, the Tunneler variant supports a command to activate the proxy tunneling module.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1485",
+          "technique_name": "Data Destruction",
+          "tactic": "Impact",
+          "description": "Malware includes file deletion capability in command dispatcher",
+          "evidence": "The malware implements a comprehensive command dispatcher that interprets single-byte command identifiers to execute a wide range of backdoor functionality, including: File upload, download and deletion.",
+          "source_url": "https://unit42.paloaltonetworks.com/espionage-campaign-against-military-targets/"
+        },
+        {
+          "technique_id": "T1574.001",
+          "technique_name": "Hijack Execution Flow: DLL Search Order Hijacking",
+          "tactic": "Persistence",
+          "description": "The attackers utilized DLL hijacking to maintain persistence and evade detection.",
+          "evidence": "utilizing techniques like DLL hijacking and process hollowing to evade detection",
+          "source_url": "https://aviatrix.ai/threat-research-center/chinese-hackers-target-southeast-asian-militaries-with-applechris-and-memfun-malware/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1055.012",
+          "technique_name": "Process Injection: Process Hollowing",
+          "tactic": "Defense Evasion",
+          "description": "The attackers employed process hollowing as an evasion technique to avoid detection.",
+          "evidence": "utilizing techniques like DLL hijacking and process hollowing to evade detection",
+          "source_url": "https://aviatrix.ai/threat-research-center/chinese-hackers-target-southeast-asian-militaries-with-applechris-and-memfun-malware/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1003.001",
+          "technique_name": "OS Credential Dumping: LSASS Memory",
+          "tactic": "Credential Access",
+          "description": "The attackers used a custom version of Mimikatz called Getpass to extract credentials from memory.",
+          "evidence": "They then escalated privileges using a custom version of Mimikatz called Getpass to extract credentials",
+          "source_url": "https://aviatrix.ai/threat-research-center/chinese-hackers-target-southeast-asian-militaries-with-applechris-and-memfun-malware/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1070.004",
+          "technique_name": "Indicator Removal: File Deletion",
+          "tactic": "Defense Evasion",
+          "description": "The attackers deleted files to remove indicators of compromise and evade detection.",
+          "evidence": "Listed as confirmed MITRE ATT&CK technique in kill chain analysis",
+          "source_url": "https://aviatrix.ai/threat-research-center/chinese-hackers-target-southeast-asian-militaries-with-applechris-and-memfun-malware/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1567",
+          "technique_name": "Exfiltration Over Web Service",
+          "tactic": "Exfiltration",
+          "description": "The attackers exfiltrated sensitive military documents by uploading them to external servers.",
+          "evidence": "The attackers exfiltrated sensitive military documents, including those related to C4I systems, by uploading them to external servers",
+          "source_url": "https://aviatrix.ai/threat-research-center/chinese-hackers-target-southeast-asian-militaries-with-applechris-and-memfun-malware/",
+          "from_enrichment": true
+        }
+      ],
+      "sigma_rules": [
+        {
+          "plain_english": "Detects when PowerShell creates reverse shell connections to known AppleChris C2 servers, which is how CL-STA-1087 maintains remote access to compromised military targets.",
+          "rule": "title: AppleChris PowerShell Reverse Shell to Known C2 Servers\nid: rule-0001\nstatus: experimental\ndescription: Detects PowerShell connections to known AppleChris C2 infrastructure used by CL-STA-1087 for remote command execution\nlogsource:\n  category: network_connection\n  product: windows\ndetection:\n  selection:\n    Image|endswith: '\\powershell.exe'\n    DestinationIp:\n      - '154.39.142.177'\n      - '154.39.137.203'\n      - '8.212.169.27'\n      - '109.248.24.177'\n  condition: selection\nfalsepositives:\n  - Unlikely, these IPs are confirmed malicious C2 infrastructure\nlevel: critical",
+          "rule_hash": "97a6197de937aefa"
+        },
+        {
+          "plain_english": "Detects creation of the unique AppleChris mutex value that the malware uses to prevent multiple instances from running simultaneously on infected systems.",
+          "rule": "title: AppleChris Backdoor Mutex Creation\nid: rule-0002\nstatus: experimental\ndescription: Detects creation of the distinctive 0XFEXYCDAPPLE05CHRIS mutex used by AppleChris malware to ensure single-instance execution\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains: '0XFEXYCDAPPLE05CHRIS'\n  condition: selection\nfalsepositives:\n  - None expected, this is a unique malware-specific mutex\nlevel: critical",
+          "rule_hash": "9bfdb1dfa9d47b4e"
+        },
+        {
+          "plain_english": "Detects DLL hijacking where AppleChris places malicious swprv32.sys in system32 to abuse Volume Shadow Copy Service for persistence with elevated privileges.",
+          "rule": "title: AppleChris DLL Hijacking via Volume Shadow Copy Service\nid: rule-0003\nstatus: experimental\ndescription: Detects AppleChris malware performing DLL side-loading by placing malicious swprv32.sys in system32 to hijack Volume Shadow Copy Service\nlogsource:\n  category: file_event\n  product: windows\ndetection:\n  selection:\n    TargetFilename|endswith: '\\system32\\swprv32.sys'\n  condition: selection\nfalsepositives:\n  - Legitimate Volume Shadow Copy Service updates (verify file hash and signature)\nlevel: high",
+          "rule_hash": "d928d6490712e3f1"
+        },
+        {
+          "plain_english": "Detects execution of suspicious GoogleUpdate.exe from non-standard locations, which is the initial MemFun loader component used in this espionage campaign.",
+          "rule": "title: Suspicious GoogleUpdate.exe Execution from Non-Standard Location\nid: rule-0004\nstatus: experimental\ndescription: Detects execution of GoogleUpdate.exe from unusual paths, indicative of MemFun malware loader used by CL-STA-1087\nlogsource:\n  category: process_creation\n  product: windows\ndetection:\n  selection:\n    Image|endswith: '\\GoogleUpdate.exe'\n  filter:\n    Image|startswith:\n      - 'C:\\Program Files (x86)\\Google\\Update\\'\n      - 'C:\\Program Files\\Google\\Update\\'\n  condition: selection and not filter\nfalsepositives:\n  - Legitimate Google Update installations in non-standard directories\nlevel: medium",
+          "rule_hash": "b78c3a8cf7ee063b"
+        },
+        {
+          "plain_english": "Detects WMI being used to execute PowerShell scripts across multiple endpoints, which is how CL-STA-1087 spreads AppleChris laterally through the network.",
+          "rule": "title: WMI Remote PowerShell Execution for Lateral Movement\nid: rule-0005\nstatus: experimental\ndescription: Detects use of WMI to remotely execute PowerShell, matching CL-STA-1087 lateral movement technique to spread AppleChris malware\nlogsource:\n  category: process_creation\n  product: windows\ndetection:\n  selection:\n    ParentImage|endswith: '\\wmiprvse.exe'\n    Image|endswith: '\\powershell.exe'\n  condition: selection\nfalsepositives:\n  - Legitimate system administration using WMI and PowerShell remoting\n  - Software deployment systems\nlevel: high",
+          "rule_hash": "183d747b1189e4c2"
+        }
+      ],
+      "snort_rules": [
+        {
+          "plain_english": "Detects outbound HTTP connections to the four known AppleChris C2 servers used for reverse shell command and control communications.",
+          "rule": "alert tcp $HOME_NET any -> [154.39.142.177,154.39.137.203,8.212.169.27,109.248.24.177] any (msg:\"MALWARE AppleChris C2 Communication to Known Server\"; flow:established,to_server; sid:9200001; rev:1; classtype:trojan-activity; priority:1; metadata:malware AppleChris, actor CL-STA-1087;)",
+          "rule_hash": "82274613629c46ff"
+        },
+        {
+          "plain_english": "Detects AppleChris malware using custom HTTP verbs like PUT, POT, DPF, UPF, CPF, or LPF which are unique to its command tracking and response mechanism.",
+          "rule": "alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS (msg:\"MALWARE AppleChris Custom HTTP Verb C2 Communication\"; flow:established,to_server; content:\"POT \"; depth:4; content:\"DPF \"; depth:4; content:\"UPF \"; depth:4; content:\"CPF \"; depth:4; content:\"LPF \"; depth:4; fast_pattern; sid:9200002; rev:1; classtype:trojan-activity; priority:1; metadata:malware AppleChris, actor CL-STA-1087;)",
+          "rule_hash": "127e781d233cebf9"
+        },
+        {
+          "plain_english": "Detects HTTP GET requests containing Base64-encoded and RSA-encrypted registration data with MAC address patterns used during AppleChris initial C2 beacon.",
+          "rule": "alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS (msg:\"MALWARE AppleChris Registration Beacon with Encrypted MAC Address\"; flow:established,to_server; content:\"GET\"; http_method; content:\"/\"; http_uri; pcre:\"/[A-Za-z0-9+\\/]{100,}={0,2}/U\"; sid:9200003; rev:1; classtype:trojan-activity; priority:1; metadata:malware AppleChris, actor CL-STA-1087;)",
+          "rule_hash": "7936f29b36a59439"
+        },
+        {
+          "plain_english": "Detects PowerShell reverse shell connections on common ports to the four known AppleChris C2 infrastructure servers used for remote command execution.",
+          "rule": "alert tcp $HOME_NET any -> [154.39.142.177,154.39.137.203,8.212.169.27,109.248.24.177] [443,4444,8080,8443] (msg:\"MALWARE AppleChris PowerShell Reverse Shell Connection\"; flow:established,to_server; content:\"powershell\"; nocase; sid:9200004; rev:1; classtype:trojan-activity; priority:1; metadata:malware AppleChris, actor CL-STA-1087;)",
+          "rule_hash": "13261e9576324733"
+        },
+        {
+          "plain_english": "Detects HTTP responses containing AES-encrypted payloads with 10-byte session identifiers used by AppleChris to deliver commands from the C2 server.",
+          "rule": "alert tcp $EXTERNAL_NET $HTTP_PORTS -> $HOME_NET any (msg:\"MALWARE AppleChris AES Encrypted Command Response from C2\"; flow:established,from_server; content:\"200\"; http_stat_code; content:\"|0d 0a|\"; content:\"|0d 0a|\"; within:4; isdataat:10,relative; sid:9200005; rev:1; classtype:trojan-activity; priority:1; metadata:malware AppleChris, actor CL-STA-1087;)",
+          "rule_hash": "6e50266ef8dfeab1"
+        }
+      ],
+      "hunting_queries": {
+        "splunk": [
+          {
+            "name": "AppleChris C2 Network Connections",
+            "description": "Detects network connections to known AppleChris C2 infrastructure IPs",
+            "query": "index=* (dest_ip IN (\"154.39.142.177\", \"154.39.137.203\", \"8.212.169.27\", \"109.248.24.177\") OR src_ip IN (\"154.39.142.177\", \"154.39.137.203\", \"8.212.169.27\", \"109.248.24.177\")) | stats count by src_ip, dest_ip, dest_port, user, action | where count > 0"
+          },
+          {
+            "name": "AppleChris Malicious File Activity",
+            "description": "Hunts for AppleChris-related suspicious filenames including DLL hijacking attempts",
+            "query": "index=* (file_name IN (\"swrpv.sys\", \"swprv32.sys\", \"update.exe\", \"GoogleUpdate.exe\") OR file_path IN (\"*\\\\system32\\\\swprv32.sys\", \"*\\\\swrpv.sys\", \"*\\\\GoogleUpdate.exe\")) | stats count by file_name, file_path, file_hash, process_name, user, dest"
+          },
+          {
+            "name": "PowerShell Reverse Shell Creation",
+            "description": "Detects suspicious PowerShell execution with network connections indicating reverse shell activity",
+            "query": "index=* sourcetype=WinEventLog:Security OR sourcetype=Powershell EventCode IN (4688, 4104, 4103) (process_name=\"powershell.exe\" OR process_name=\"pwsh.exe\") (CommandLine=\"*Net.Sockets*\" OR CommandLine=\"*TCPClient*\" OR CommandLine=\"*GetStream*\" OR CommandLine=\"*Invoke-Expression*\" OR CommandLine=\"*IEX*\") | stats count by Computer, user, process_name, CommandLine, parent_process_name"
+          }
+        ],
+        "kql": [
+          {
+            "name": "AppleChris C2 Communications",
+            "description": "Identifies network connections to known AppleChris C2 servers from endpoints",
+            "query": "DeviceNetworkEvents | where RemoteIP in (\"154.39.142.177\", \"154.39.137.203\", \"8.212.169.27\", \"109.248.24.177\") or InitiatingProcessFileName has_any (\"powershell.exe\", \"pwsh.exe\", \"GoogleUpdate.exe\", \"update.exe\") | project Timestamp, DeviceName, InitiatingProcessFileName, InitiatingProcessCommandLine, RemoteIP, RemotePort, RemoteUrl, LocalIP, ActionType | order by Timestamp desc"
+          },
+          {
+            "name": "AppleChris DLL Hijacking and Persistence",
+            "description": "Detects AppleChris malware filenames and DLL side-loading into system32 directory",
+            "query": "DeviceFileEvents | where FileName in~ (\"swrpv.sys\", \"swprv32.sys\", \"update.exe\", \"GoogleUpdate.exe\") or (FolderPath has \"system32\" and FileName endswith \".sys\" and FileName in~ (\"swprv32.sys\", \"swrpv.sys\")) or InitiatingProcessCommandLine has_any (\"vssvc.exe\", \"Volume Shadow Copy\") | project Timestamp, DeviceName, FileName, FolderPath, SHA256, InitiatingProcessFileName, InitiatingProcessCommandLine, FileOriginUrl | order by Timestamp desc"
+          },
+          {
+            "name": "WMI and PowerShell Lateral Movement",
+            "description": "Hunts for lateral movement using WMI and PowerShell with potential reverse shell characteristics",
+            "query": "DeviceProcessEvents | where (FileName =~ \"powershell.exe\" or FileName =~ \"pwsh.exe\") and (ProcessCommandLine has_any (\"Net.Sockets\", \"TCPClient\", \"GetStream\", \"Invoke-Expression\", \"IEX\", \"-e \", \"-enc\", \"FromBase64String\") or InitiatingProcessFileName =~ \"wmiprvse.exe\" or InitiatingProcessFileName =~ \"WmiPrvSE.exe\") | project Timestamp, DeviceName, AccountName, FileName, ProcessCommandLine, InitiatingProcessFileName, InitiatingProcessCommandLine, InitiatingProcessParentFileName | order by Timestamp desc"
+          }
+        ],
+        "eql": [
+          {
+            "name": "AppleChris Service Creation and DLL Hijacking Chain",
+            "description": "Detects service creation followed by malicious DLL loading into system32 for persistence",
+            "query": "sequence by ComputerName with maxspan=5m [process where event_id == 1 and process_name in (\"sc.exe\", \"net.exe\") and process_cmd_line like \"*create*\"] [file where event_id == 11 and file_path like \"*\\\\system32\\\\*\" and file_name in (\"swprv32.sys\", \"swrpv.sys\", \"update.exe\", \"GoogleUpdate.exe\")]"
+          },
+          {
+            "name": "PowerShell Reverse Shell to Known C2",
+            "description": "Identifies PowerShell execution with network connection to AppleChris C2 infrastructure",
+            "query": "sequence by ComputerName with maxspan=2m [process where event_id == 1 and process_name in (\"powershell.exe\", \"pwsh.exe\") and (process_cmd_line like \"*Net.Sockets*\" or process_cmd_line like \"*TCPClient*\" or process_cmd_line like \"*GetStream*\")] [network where event_id == 3 and (DestinationIp == \"154.39.142.177\" or DestinationIp == \"154.39.137.203\" or DestinationIp == \"8.212.169.27\" or DestinationIp == \"109.248.24.177\")]"
+          },
+          {
+            "name": "WMI Lateral Movement with Malware Deployment",
+            "description": "Detects WMI usage for lateral movement followed by AppleChris malware file creation",
+            "query": "sequence by ComputerName with maxspan=10m [process where event_id == 1 and process_name == \"WmiPrvSE.exe\" and parent_process_name in (\"svchost.exe\", \"wmiprvse.exe\")] [file where event_id == 11 and file_name in (\"swrpv.sys\", \"swprv32.sys\", \"update.exe\", \"GoogleUpdate.exe\")]"
+          }
+        ]
+      },
+      "caldera_scenario": {
+        "adversary": {
+          "id": "cl-sta-1087-applechris",
+          "name": "CL-STA-1087 AppleChris Campaign",
+          "description": "This simulation profile emulates CL-STA-1087's AppleChris malware campaign targeting military organizations. The threat actor deployed DLL side-loading techniques through Volume Shadow Copy Service hijacking, established persistence via service creation, and used encrypted C2 communications with custom HTTP verbs. Attackers leveraged WMI and PowerShell for lateral movement and remote execution across compromised networks.",
+          "tags": [
+            "apt",
+            "espionage",
+            "military",
+            "dll-sideloading"
+          ],
+          "atomic_ordering": [
+            "8f7c3a1b-9e2d-4c5a-b6f8-1d3e7a9c4b2f",
+            "2d4e6f8a-1c3b-5a7d-9e2f-4b6c8a1d3e5f",
+            "5a7c9e1b-3d5f-7a9c-1e3b-5d7f9a1c3e5b",
+            "9c1e3b5d-7f9a-1c3e-5b7d-9f1a3c5e7b9d",
+            "3e5b7d9f-1a3c-5e7b-9d1f-3a5c7e9b1d3f"
+          ]
+        },
+        "abilities": [
+          {
+            "id": "8f7c3a1b-9e2d-4c5a-b6f8-1d3e7a9c4b2f",
+            "name": "Simulate PowerShell Reverse Shell Execution",
+            "plain_english": "Tests whether your EDR detects suspicious PowerShell network connection attempts that mimic reverse shell behavior - the technique CL-STA-1087 used to remotely execute malicious scripts across compromised endpoints.",
+            "tactic": "execution",
+            "technique_id": "T1059.001",
+            "technique_name": "PowerShell",
+            "ability_yaml": "- id: 8f7c3a1b-9e2d-4c5a-b6f8-1d3e7a9c4b2f\n  name: Simulate PowerShell Reverse Shell Execution\n  description: Simulates AppleChris malware using PowerShell for remote execution and C2 communication\n  tactic: execution\n  technique:\n    attack_id: T1059.001\n    name: PowerShell\n  platforms:\n    windows:\n      psh:\n        command: |\n          Write-Host \"[SIM] AppleChris PowerShell execution simulation\"\n          $simScript = \"$env:TEMP\\applechris_sim.ps1\"\n          $content = @'\n          # [SIM] Simulated reverse shell behavior\n          Write-Host \"[SIM] Establishing simulated C2 connection\"\n          $simC2 = \"sim-c2-server.local\"\n          Write-Host \"[SIM] Connected to: $simC2\"\n          Write-Host \"[SIM] Session ID: SIM-$(Get-Random -Maximum 99999)\"\n          Write-Host \"[SIM] Awaiting commands from C2\"\n          '@\n          Set-Content -Path $simScript -Value $content\n          powershell.exe -ExecutionPolicy Bypass -File $simScript\n          Write-Host \"[SIM] PowerShell execution completed\"\n        cleanup: |\n          Remove-Item -Path \"$env:TEMP\\applechris_sim.ps1\" -Force -ErrorAction SilentlyContinue\n          Write-Host \"[SIM] Cleanup: Removed simulated PowerShell script\"\n",
+            "rule_hash": "09db8400c9685608"
+          },
+          {
+            "id": "2d4e6f8a-1c3b-5a7d-9e2f-4b6c8a1d3e5f",
+            "name": "Simulate DLL Side-Loading via VSS Hijack",
+            "plain_english": "Tests whether security tools detect malicious DLL placement in system32 masquerading as a legitimate Windows component - the DLL hijacking technique AppleChris used to abuse Volume Shadow Copy Service for privilege escalation.",
+            "tactic": "privilege-escalation",
+            "technique_id": "T1574.002",
+            "technique_name": "DLL Side-Loading",
+            "ability_yaml": "- id: 2d4e6f8a-1c3b-5a7d-9e2f-4b6c8a1d3e5f\n  name: Simulate DLL Side-Loading via VSS Hijack\n  description: Simulates AppleChris DLL hijacking of Volume Shadow Copy Service (swprv32.sys)\n  tactic: privilege-escalation\n  technique:\n    attack_id: T1574.002\n    name: DLL Side-Loading\n  platforms:\n    windows:\n      psh:\n        command: |\n          Write-Host \"[SIM] AppleChris DLL side-loading simulation\"\n          $simDLL = \"$env:TEMP\\swprv32_sim.dll\"\n          $simContent = \"[SIM] This simulates the malicious AppleChris DLL (swprv32.sys) that hijacks VSS\"\n          Set-Content -Path $simDLL -Value $simContent\n          Write-Host \"[SIM] Created simulated malicious DLL: $simDLL\"\n          Write-Host \"[SIM] Real attack would place in: C:\\Windows\\System32\\swprv32.sys\"\n          Write-Host \"[SIM] Target service: Volume Shadow Copy Service (swprv)\"\n          Write-Host \"[SIM] Technique: DLL hijacking for privilege escalation\"\n          Get-Item $simDLL | Select-Object Name, Length, CreationTime\n        cleanup: |\n          Remove-Item -Path \"$env:TEMP\\swprv32_sim.dll\" -Force -ErrorAction SilentlyContinue\n          Write-Host \"[SIM] Cleanup: Removed simulated DLL\"\n",
+            "rule_hash": "403f89fbfa02b500"
+          },
+          {
+            "id": "5a7c9e1b-3d5f-7a9c-1e3b-5d7f9a1c3e5b",
+            "name": "Simulate Malicious Service Creation for Persistence",
+            "plain_english": "Tests whether your monitoring detects suspicious service creation with unusual binaries - the persistence mechanism CL-STA-1087 used to automatically execute AppleChris malware after system restarts.",
+            "tactic": "persistence",
+            "technique_id": "T1543.003",
+            "technique_name": "Windows Service",
+            "ability_yaml": "- id: 5a7c9e1b-3d5f-7a9c-1e3b-5d7f9a1c3e5b\n  name: Simulate Malicious Service Creation for Persistence\n  description: Simulates AppleChris service-based persistence mechanism\n  tactic: persistence\n  technique:\n    attack_id: T1543.003\n    name: Windows Service\n  platforms:\n    windows:\n      psh:\n        command: |\n          Write-Host \"[SIM] AppleChris service persistence simulation\"\n          $serviceName = \"AppleChrisSim\"\n          $simExe = \"$env:TEMP\\applechris_service_sim.exe\"\n          $simContent = \"[SIM] Simulated AppleChris service executable\"\n          Set-Content -Path $simExe -Value $simContent\n          Write-Host \"[SIM] Created simulated service binary: $simExe\"\n          Write-Host \"[SIM] Service name: $serviceName\"\n          Write-Host \"[SIM] Real attack creates service targeting VSS component\"\n          Write-Host \"[SIM] Service would execute: malicious DLL via service host\"\n          Write-Host \"[SIM] Persistence: Service set to auto-start on boot\"\n          Write-Host \"[SIM] NOTE: No actual service created in this simulation\"\n        cleanup: |\n          Remove-Item -Path \"$env:TEMP\\applechris_service_sim.exe\" -Force -ErrorAction SilentlyContinue\n          Write-Host \"[SIM] Cleanup: Removed simulated service binary\"\n",
+            "rule_hash": "17a3755a533353ce"
+          },
+          {
+            "id": "9c1e3b5d-7f9a-1c3e-5b7d-9f1a3c5e7b9d",
+            "name": "Simulate WMI-Based Lateral Movement",
+            "plain_english": "Tests whether security monitoring detects WMI being used to remotely execute commands on other systems - the lateral movement technique CL-STA-1087 employed to spread AppleChris malware across the network.",
+            "tactic": "execution",
+            "technique_id": "T1047",
+            "technique_name": "Windows Management Instrumentation",
+            "ability_yaml": "- id: 9c1e3b5d-7f9a-1c3e-5b7d-9f1a3c5e7b9d\n  name: Simulate WMI-Based Lateral Movement\n  description: Simulates AppleChris using WMI for network propagation and remote execution\n  tactic: execution\n  technique:\n    attack_id: T1047\n    name: Windows Management Instrumentation\n  platforms:\n    windows:\n      psh:\n        command: |\n          Write-Host \"[SIM] AppleChris WMI lateral movement simulation\"\n          $simTargets = @(\"SIM-HOST-001\", \"SIM-HOST-002\", \"SIM-HOST-003\")\n          $simPayload = \"$env:TEMP\\applechris_payload_sim.exe\"\n          Set-Content -Path $simPayload -Value \"[SIM] AppleChris malware payload\"\n          Write-Host \"[SIM] Created simulated payload: $simPayload\"\n          foreach ($target in $simTargets) {\n            Write-Host \"[SIM] Attempting WMI connection to: $target\"\n            Write-Host \"[SIM] WMI Query: SELECT * FROM Win32_Process WHERE Name='explorer.exe'\"\n            Write-Host \"[SIM] Would execute: wmic /node:$target process call create '$simPayload'\"\n            Write-Host \"[SIM] Deployment status: Simulated success on $target\"\n          }\n          Write-Host \"[SIM] Lateral movement simulation complete\"\n        cleanup: |\n          Remove-Item -Path \"$env:TEMP\\applechris_payload_sim.exe\" -Force -ErrorAction SilentlyContinue\n          Write-Host \"[SIM] Cleanup: Removed simulated payload file\"\n",
+            "rule_hash": "b5b894b7adad8314"
+          },
+          {
+            "id": "3e5b7d9f-1a3c-5e7b-9d1f-3a5c7e9b1d3f",
+            "name": "Simulate Encrypted C2 with Custom HTTP Verbs",
+            "plain_english": "Tests whether network monitoring detects unusual HTTP methods and encrypted payloads that mimic C2 traffic - the command and control technique AppleChris used with custom verbs like PUT, POT, DPF for stealth communications.",
+            "tactic": "command-and-control",
+            "technique_id": "T1071.001",
+            "technique_name": "Web Protocols",
+            "ability_yaml": "- id: 3e5b7d9f-1a3c-5e7b-9d1f-3a5c7e9b1d3f\n  name: Simulate Encrypted C2 with Custom HTTP Verbs\n  description: Simulates AppleChris C2 communications using custom HTTP verbs and encryption\n  tactic: command-and-control\n  technique:\n    attack_id: T1071.001\n    name: Web Protocols\n  platforms:\n    windows:\n      psh:\n        command: |\n          Write-Host \"[SIM] AppleChris encrypted C2 communication simulation\"\n          $c2Server = \"sim-c2.pastebin-clone.local\"\n          $sessionID = -join ((0..9) | Get-Random -Count 10 | ForEach-Object {$_.ToString()})\n          $computerName = $env:COMPUTERNAME\n          $macAddress = \"00-SIM-MAC-ADDR\"\n          Write-Host \"[SIM] Generated Session ID: $sessionID\"\n          Write-Host \"[SIM] Registration data: $computerName|$macAddress\"\n          Write-Host \"[SIM] Simulating RSA-1024 encryption of registration data\"\n          $encryptedData = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes(\"$computerName|$macAddress\"))\n          Write-Host \"[SIM] Base64-encoded (simulated encrypted): $encryptedData\"\n          $customVerbs = @(\"PUT\", \"POT\", \"DPF\", \"UPF\", \"CPF\", \"LPF\")\n          foreach ($verb in $customVerbs) {\n            Write-Host \"[SIM] HTTP $verb request to $c2Server with encrypted payload\"\n            Write-Host \"[SIM] Response would be AES-decrypted using session ID as key\"\n          }\n          Write-Host \"[SIM] C2 communication complete\"\n        cleanup: |\n          Write-Host \"[SIM] Cleanup: No files created, simulation complete\"\n",
+            "rule_hash": "0b950b477cf51ed4"
+          }
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "title": "The CISO's Guide: From VPN Replacement to Comprehensive ZTNA",
+      "source_name": "CERT-UA",
+      "url": "https://thehackernews.com/2025/04/cert-ua-reports-cyberattacks-targeting.html",
+      "published_at": "2026-03-17",
+      "extracted_at": "2026-03-19",
+      "threat_actor": "",
+      "malware_family": "",
+      "campaign_name": "",
+      "analyst_summary": "",
+      "severity": "Medium",
+      "quality": "skipped_triage",
+      "ioc_count": 0,
+      "ttp_count": 0,
+      "sigma_count": 0,
+      "snort_count": 0,
+      "query_count": 0,
+      "caldera_count": 0,
+      "enrichment_count": 0,
+      "enrichment_sources": [],
+      "iocs": [],
+      "ttps": [],
+      "sigma_rules": [],
+      "snort_rules": [],
+      "hunting_queries": {},
+      "caldera_scenario": {}
+    },
+    {
+      "id": 5,
+      "title": "Stryker attack wiped tens of thousands of devices, no malware needed",
+      "source_name": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/stryker-attack-wiped-tens-of-thousands-of-devices-no-malware-needed/",
+      "published_at": "Mon, 16 Ma",
+      "extracted_at": "2026-03-19",
+      "threat_actor": "Handala",
+      "malware_family": "",
+      "campaign_name": "",
+      "analyst_summary": "Handala threat actors deployed a custom wiper malware that performs MBR and file overwriting operations, destroying data through directory deletion and disk wiping techniques (T1485, T1561). The attackers used Active Directory reconnaissance via ADRecon and distributed the wiper through GPO logon scripts after establishing persistence through account manipulation (T1098) and cloud account compromise (T1078.004). The campaign demonstrates a destructive focus targeting enterprise networks with coordinated reconnaissance, lateral movement, and data destruction capabilities.",
+      "severity": "Critical",
+      "quality": "enriched",
+      "ioc_count": 11,
+      "ttp_count": 38,
+      "sigma_count": 5,
+      "snort_count": 5,
+      "query_count": 9,
+      "caldera_count": 0,
+      "enrichment_count": 3,
+      "enrichment_sources": [
+        {
+          "url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "name": "cstromblad.com",
+          "text_length": 8000
+        },
+        {
+          "url": "https://cymulate.com/blog/handala-hack/",
+          "name": "cymulate.com",
+          "text_length": 8000
+        },
+        {
+          "url": "https://research.checkpoint.com/2026/handala-hack-unveiling-groups-modus-operandi/",
+          "name": "research.checkpoint.com",
+          "text_length": 8000
+        }
+      ],
+      "iocs": [
+        {
+          "type": "hash_md5",
+          "value": "5986ab04dd6b3d259935249741d3eff2",
+          "confidence": "high",
+          "context": "Custom binary performing MBR and file overwriting identified as Handala Wiper",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "type": "hash_md5",
+          "value": "3cb9dea916432ffb8784ac36d1f2d3cd",
+          "confidence": "high",
+          "context": "AI-assisted PowerShell script deleting user directories and dropping propaganda images",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "type": "ip",
+          "value": "169[.]150[.]227[.]X",
+          "confidence": "medium",
+          "context": "Brute-force and credential-based VPN access frequently originating from commercial VPN nodes",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "type": "ip",
+          "value": "149[.]88[.]26[.]X",
+          "confidence": "medium",
+          "context": "Brute-force and credential-based VPN access frequently originating from commercial VPN nodes",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "type": "ip",
+          "value": "188[.]92[.]255[.]X",
+          "confidence": "medium",
+          "context": "Brute-force and credential-based VPN access from Starlink IP ranges",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "type": "ip",
+          "value": "209[.]198[.]131[.]X",
+          "confidence": "medium",
+          "context": "Brute-force and credential-based VPN access from Starlink IP ranges",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "type": "filename",
+          "value": "handala[.]bat",
+          "confidence": "high",
+          "context": "Batch file used to distribute Handala Wiper via GPO logon scripts and scheduled tasks",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "type": "filename",
+          "value": "dra[.]ps1",
+          "confidence": "high",
+          "context": "PowerShell-based reconnaissance framework ADRecon used for enumerating AD environments",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "type": "ip",
+          "value": "146[.]185[.]219[.]235",
+          "confidence": "medium",
+          "context": "At times, it successfully egressed through an Israeli node, 146.185.219[.]235, assessed to be linked to a VPN service.",
+          "source_url": "https://research.checkpoint.com/2026/handala-hack-unveiling-groups-modus-operandi/",
+          "from_enrichment": true
+        },
+        {
+          "type": "ip",
+          "value": "107[.]189[.]19[.]52",
+          "confidence": "high",
+          "context": "Shortly afterwards, the attacker attempted to retrieve an additional payload from a dedicated command-and-control server (107.189.19[.]52).",
+          "source_url": "https://research.checkpoint.com/2026/handala-hack-unveiling-groups-modus-operandi/",
+          "from_enrichment": true
+        },
+        {
+          "type": "filename",
+          "value": "dra.ps1",
+          "confidence": "medium",
+          "context": "In parallel, the attacker executed ADRecon (named dra.ps1), a PowerShell-based reconnaissance framework used to enumerate Active Directory environments.",
+          "source_url": "https://research.checkpoint.com/2026/handala-hack-unveiling-groups-modus-operandi/",
+          "from_enrichment": true
+        }
+      ],
+      "ttps": [
+        {
+          "technique_id": "T1098",
+          "technique_name": "Account Manipulation",
+          "tactic": "Persistence",
+          "description": "Threat actor created a new Global Administrator account after compromising an existing administrator account to maintain elevated access",
+          "evidence": "The attacker carried out the action after compromising an administrator account and creating a new Global Administrator account.",
+          "source_url": "https://www.bleepingcomputer.com/news/security/stryker-attack-wiped-tens-of-thousands-of-devices-no-malware-needed/"
+        },
+        {
+          "technique_id": "T1078.004",
+          "technique_name": "Cloud Accounts",
+          "tactic": "Persistence",
+          "description": "Threat actor created a new Global Administrator account in the cloud environment to maintain persistent access",
+          "evidence": "The attacker carried out the action after compromising an administrator account and creating a new Global Administrator account.",
+          "source_url": "https://www.bleepingcomputer.com/news/security/stryker-attack-wiped-tens-of-thousands-of-devices-no-malware-needed/"
+        },
+        {
+          "technique_id": "T1485",
+          "technique_name": "Data Destruction",
+          "tactic": "Impact",
+          "description": "Threat actor used Microsoft Intune wipe command to remotely erase data from nearly 80,000 devices",
+          "evidence": "The threat actor used the wipe command in Intune, Microsoft's cloud-based endpoint management service, to erase data from nearly 80,000 devices between 5:00 and 8:00 a.m. UTC on March 11.",
+          "source_url": "https://www.bleepingcomputer.com/news/security/stryker-attack-wiped-tens-of-thousands-of-devices-no-malware-needed/"
+        },
+        {
+          "technique_id": "T1561",
+          "technique_name": "Disk Wipe",
+          "tactic": "Impact",
+          "description": "Threat actor remotely wiped tens of thousands of employee devices including systems, servers, and mobile devices",
+          "evidence": "Stryker employees in multiple countries started to complain that their managed devices had been remotely wiped overnight. The attacker alleged that they wiped over 200,000 systems, servers, and mobile devices.",
+          "source_url": "https://www.bleepingcomputer.com/news/security/stryker-attack-wiped-tens-of-thousands-of-devices-no-malware-needed/"
+        },
+        {
+          "technique_id": "T1526",
+          "technique_name": "Cloud Service Discovery",
+          "tactic": "Discovery",
+          "description": "Threat actor leveraged Microsoft Intune cloud-based endpoint management service to execute remote wipe commands across the organization",
+          "evidence": "The threat actor used the wipe command in Intune, Microsoft's cloud-based endpoint management service, to erase data from nearly 80,000 devices.",
+          "source_url": "https://www.bleepingcomputer.com/news/security/stryker-attack-wiped-tens-of-thousands-of-devices-no-malware-needed/"
+        },
+        {
+          "technique_id": "T1566",
+          "technique_name": "Phishing",
+          "tactic": "Initial Access",
+          "description": "Primary vector for recent destructive operations to obtain legitimate user credentials, including phishing lures impersonating F5 updates",
+          "evidence": "The primary vector for recent destructive operations, used to obtain legitimate user credentials. The group has deployed phishing lures impersonating F5 updates to deliver both the Rhadamanthys infostealer and custom wipers.",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1133",
+          "technique_name": "External Remote Services",
+          "tactic": "Initial Access",
+          "description": "Brute-force and credential-based VPN access frequently originating from commercial VPN nodes and Starlink IP ranges",
+          "evidence": "Brute-force and credential-based VPN access frequently originating from commercial VPN nodes (169.150.227.X, 149.88.26.X) and Starlink IP ranges (188.92.255.X, 209.198.131.X).",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1110",
+          "technique_name": "Brute Force",
+          "tactic": "Credential Access",
+          "description": "Hundreds of logon and brute-force attempts against organizational VPN infrastructure",
+          "evidence": "Hundreds of logon and brute-force attempts against organisational VPN infrastructure have been linked to Handala-associated infrastructure.",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1199",
+          "technique_name": "Trusted Relationship",
+          "tactic": "Initial Access",
+          "description": "Consistent targeting of IT and service providers to obtain credentials and access to downstream victims",
+          "evidence": "Consistent targeting of IT and service providers to obtain credentials and access to downstream victims.",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1078",
+          "technique_name": "Valid Accounts",
+          "tactic": "Initial Access",
+          "description": "Use of stolen or supplied credentials, including Domain Admin credentials, for network entry",
+          "evidence": "Use of stolen or supplied credentials, including Domain Admin credentials, for network entry.",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1003.001",
+          "technique_name": "LSASS Memory",
+          "tactic": "Credential Access",
+          "description": "Dumping the LSASS process using comsvcs.dll via rundll32.exe",
+          "evidence": "Dumping the LSASS process using comsvcs.dll via rundll32.exe.",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1003.002",
+          "technique_name": "Security Account Manager",
+          "tactic": "Credential Access",
+          "description": "Exporting sensitive registry hives (HKLM SAM/SYSTEM) for offline credential extraction",
+          "evidence": "Exporting sensitive registry hives (HKLM SAM/SYSTEM) for offline credential extraction.",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1087.002",
+          "technique_name": "Domain Account",
+          "tactic": "Discovery",
+          "description": "Execution of ADRecon (named dra.ps1), a PowerShell-based reconnaissance framework for enumerating AD environments",
+          "evidence": "Execution of ADRecon (named dra.ps1), a PowerShell-based reconnaissance framework for enumerating AD environments.",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1562.001",
+          "technique_name": "Disable or Modify Tools",
+          "tactic": "Defense Evasion",
+          "description": "Disabling Windows Defender protections prior to credential theft and wiper deployment",
+          "evidence": "Disabling Windows Defender protections prior to credential theft and wiper deployment.",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1021.001",
+          "technique_name": "Remote Desktop Protocol",
+          "tactic": "Lateral Movement",
+          "description": "Lateral movement conducted primarily through extensive use of Remote Desktop Protocol",
+          "evidence": "Lateral movement conducted primarily through extensive use of Remote Desktop Protocol.",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1572",
+          "technique_name": "Protocol Tunneling",
+          "tactic": "Command and Control",
+          "description": "Deployment of NetBird, a zero-trust mesh networking platform, to reach hosts not directly accessible from outside the network",
+          "evidence": "Deployment of NetBird, a zero-trust mesh networking platform, to reach hosts not directly accessible from outside the network. The software is downloaded directly from the official NetBird website via local browsers on compromised hosts.",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1047",
+          "technique_name": "Windows Management Instrumentation",
+          "tactic": "Execution",
+          "description": "Use of wmic.exe for remote process creation and file operations across Active Directory hosts",
+          "evidence": "Use of wmic.exe for remote process creation and file operations across Active Directory hosts.",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1484.001",
+          "technique_name": "Group Policy Modification",
+          "tactic": "Defense Evasion",
+          "description": "Wipers distributed across networks via Group Policy Objects, using GPO logon scripts and scheduled tasks",
+          "evidence": "Wipers are distributed across networks via Group Policy Objects (T1484.001), using GPO logon scripts and scheduled tasks to maximise reach.",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1486",
+          "technique_name": "Data Encrypted for Impact",
+          "tactic": "Impact",
+          "description": "Legitimate VeraCrypt encryption tool abused to encrypt system drives as an additional destructive layer",
+          "evidence": "Legitimate encryption tool abused to encrypt system drives as an additional destructive layer",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1651",
+          "technique_name": "Cloud Administration Command",
+          "tactic": "Execution",
+          "description": "Mass remote wipe/factory reset commands issued via legitimate Microsoft Intune MDM infrastructure",
+          "evidence": "Mass remote wipe/factory reset commands issued via legitimate MDM infrastructure... Abuse of compromised administrative Intune access",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1491",
+          "technique_name": "Defacement",
+          "tactic": "Impact",
+          "description": "Login pages and web interfaces defaced with the Handala logo during intrusions",
+          "evidence": "Login pages and web interfaces defaced with the Handala logo during intrusions.",
+          "source_url": "https://cstromblad.com/posts/threat-actor-profile-handala/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1190",
+          "technique_name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "description": "Exploitation of exposed services for initial foothold",
+          "evidence": "Exploitation of exposed services for foothold",
+          "source_url": "https://cymulate.com/blog/handala-hack/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1059.001",
+          "technique_name": "PowerShell",
+          "tactic": "Execution",
+          "description": "Encoded and obfuscated PowerShell used for staging and execution of malicious actions",
+          "evidence": "Script-driven execution, including PowerShell and Windows command shell (BAT) activity to stage, automate and execute actions; Encoded/obfuscated PowerShell used for staging and execution",
+          "source_url": "https://cymulate.com/blog/handala-hack/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1059.003",
+          "technique_name": "Windows Command Shell",
+          "tactic": "Execution",
+          "description": "BAT/cmd execution to automate attack steps",
+          "evidence": "Script-driven execution, including PowerShell and Windows command shell (BAT) activity to stage, automate and execute actions; BAT/cmd execution to automate steps",
+          "source_url": "https://cymulate.com/blog/handala-hack/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1053",
+          "technique_name": "Scheduled Task/Job",
+          "tactic": "Persistence",
+          "description": "Scheduled tasks created to re-run scripts or stages for persistence",
+          "evidence": "Scheduled tasks to re-run scripts or stages",
+          "source_url": "https://cymulate.com/blog/handala-hack/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1547",
+          "technique_name": "Boot or Logon Autostart Execution",
+          "tactic": "Persistence",
+          "description": "Autostart persistence mechanisms employed for maintaining access",
+          "evidence": "Autostart persistence mechanisms",
+          "source_url": "https://cymulate.com/blog/handala-hack/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1068",
+          "technique_name": "Exploitation for Privilege Escalation",
+          "tactic": "Privilege Escalation",
+          "description": "Elevation after initial foothold to expand control",
+          "evidence": "Elevation after foothold to expand control",
+          "source_url": "https://cymulate.com/blog/handala-hack/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1027",
+          "technique_name": "Obfuscated Files or Information",
+          "tactic": "Defense Evasion",
+          "description": "Obfuscated scripts and encoded payloads used to evade detection",
+          "evidence": "Obfuscated scripts and encoded payloads",
+          "source_url": "https://cymulate.com/blog/handala-hack/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1562",
+          "technique_name": "Impair Defenses",
+          "tactic": "Defense Evasion",
+          "description": "Security control tampering performed prior to destructive impact phase",
+          "evidence": "Defense impairment steps intended to reduce visibility or response capability before destructive execution; Security control tampering prior to impact",
+          "source_url": "https://cymulate.com/blog/handala-hack/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1070",
+          "technique_name": "Indicator Removal",
+          "tactic": "Defense Evasion",
+          "description": "Clearing logs and artifacts to reduce visibility of malicious activity",
+          "evidence": "Clearing logs/artifacts to reduce visibility",
+          "source_url": "https://cymulate.com/blog/handala-hack/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1082",
+          "technique_name": "System Information Discovery",
+          "tactic": "Discovery",
+          "description": "Host reconnaissance performed prior to destructive impact",
+          "evidence": "Discovery and lateral movement behaviors allowing for broader reach and faster disruption inside a network; Host reconnaissance prior to impact",
+          "source_url": "https://cymulate.com/blog/handala-hack/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1018",
+          "technique_name": "Remote System Discovery",
+          "tactic": "Discovery",
+          "description": "Network discovery to identify reachable systems for lateral movement",
+          "evidence": "Discovery and lateral movement behaviors allowing for broader reach and faster disruption inside a network; Network discovery to identify reachable systems",
+          "source_url": "https://cymulate.com/blog/handala-hack/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1021",
+          "technique_name": "Remote Services",
+          "tactic": "Lateral Movement",
+          "description": "Use of remote services for lateral movement across the network",
+          "evidence": "Discovery and lateral movement behaviors allowing for broader reach and faster disruption inside a network; Use of remote services for movement",
+          "source_url": "https://cymulate.com/blog/handala-hack/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1570",
+          "technique_name": "Lateral Tool Transfer",
+          "tactic": "Lateral Movement",
+          "description": "Transfer of payloads and tools across hosts during lateral movement",
+          "evidence": "Transfer payloads/tools across hosts",
+          "source_url": "https://cymulate.com/blog/handala-hack/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1003.003",
+          "technique_name": "NTDS",
+          "tactic": "Credential Access",
+          "description": "Handala copied the system registry hive from Volume Shadow Copy for credential extraction",
+          "evidence": "copy \\\\?\\GLOBALROOT\\Device\\HarddiskVolumeShadowCopy1\\windows\\system32\\config\\system  c:\\users\\public",
+          "source_url": "https://research.checkpoint.com/2026/handala-hack-unveiling-groups-modus-operandi/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1090.003",
+          "technique_name": "Multi-hop Proxy",
+          "tactic": "Command and Control",
+          "description": "Handala egressed through commercial VPN services and nodes to obfuscate their origin",
+          "evidence": "the adversary generally maintained stronger operational discipline, typically egressing through the commercial VPN segment 169.150.227.X while operating against targets in Israel",
+          "source_url": "https://research.checkpoint.com/2026/handala-hack-unveiling-groups-modus-operandi/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1567",
+          "technique_name": "Exfiltration Over Web Service",
+          "tactic": "Exfiltration",
+          "description": "Handala conducted hack and leak operations by leaking stolen data through their online persona",
+          "evidence": "Void Manticore, is an Iranian threat actor that is known for multiple destructive wiping attacks combined with 'hack and leak' operations",
+          "source_url": "https://research.checkpoint.com/2026/handala-hack-unveiling-groups-modus-operandi/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1588.002",
+          "technique_name": "Tool",
+          "tactic": "Resource Development",
+          "description": "Handala relied on underground criminal services to obtain initial access and malware",
+          "evidence": "Void Manticore has historically used both custom-built and publicly available tools, while also relying on underground criminal services to obtain initial access and malware",
+          "source_url": "https://research.checkpoint.com/2026/handala-hack-unveiling-groups-modus-operandi/",
+          "from_enrichment": true
+        }
+      ],
+      "sigma_rules": [
+        {
+          "plain_english": "Detects execution of the ADRecon PowerShell reconnaissance script (dra.ps1) used by Handala to enumerate Active Directory environments before deploying their wiper malware.",
+          "rule": "title: Handala ADRecon PowerShell Script Execution\nid: rule-0001\nstatus: experimental\ndescription: Detects execution of dra.ps1, the ADRecon PowerShell-based reconnaissance framework used by Handala threat actor to enumerate Active Directory environments prior to destructive operations\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    - CommandLine|contains: 'dra.ps1'\n    - Image|endswith: '\\powershell.exe'\n      CommandLine|contains|all:\n        - '.ps1'\n        - 'ADRecon'\n  condition: selection\nfalsepositives:\n  - Legitimate use of ADRecon tool by authorized security teams\nlevel: high",
+          "rule_hash": "6847703df3c15d54"
+        },
+        {
+          "plain_english": "Detects execution of handala.bat batch file used by the Handala threat actor to distribute their custom wiper malware via GPO logon scripts and scheduled tasks across the network.",
+          "rule": "title: Handala Wiper Distribution via Batch File\nid: rule-0002\nstatus: experimental\ndescription: Detects execution of handala.bat batch file used to distribute Handala Wiper via GPO logon scripts and scheduled tasks\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    - Image|endswith: '\\cmd.exe'\n      CommandLine|contains: 'handala.bat'\n    - ParentImage|endswith:\n        - '\\svchost.exe'\n        - '\\taskeng.exe'\n        - '\\taskhostw.exe'\n      CommandLine|contains: 'handala.bat'\n  condition: selection\nfalsepositives:\n  - Unlikely, filename is highly specific to this threat actor\nlevel: critical",
+          "rule_hash": "3a4eacbee06b4c9e"
+        },
+        {
+          "plain_english": "Detects creation of new Global Administrator accounts in Azure AD/Entra ID, which Handala uses to maintain persistent elevated access before executing mass device wipes via Intune.",
+          "rule": "title: Suspicious Global Administrator Account Creation\nid: rule-0003\nstatus: experimental\ndescription: Detects creation of new Global Administrator accounts in Azure AD, a persistence technique used by Handala before executing mass wipe operations via Intune\nlogsource:\n  product: azure\n  service: auditlogs\ndetection:\n  selection:\n    ActivityDisplayName: 'Add member to role'\n    TargetResources.modifiedProperties.displayName: 'Role.DisplayName'\n    TargetResources.modifiedProperties.newValue|contains: 'Global Administrator'\n  timeframe: 1h\n  condition: selection\nfalsepositives:\n  - Legitimate administrative role assignments during normal operations\n  - Expected during new hire onboarding processes\nlevel: high",
+          "rule_hash": "b60c7b2213f59f48"
+        },
+        {
+          "plain_english": "Detects mass device wipe commands executed via Microsoft Intune, the exact technique Handala used to remotely destroy data on nearly 80,000 Stryker employee devices in March 2025.",
+          "rule": "title: Mass Device Wipe via Microsoft Intune\nid: rule-0004\nstatus: experimental\ndescription: Detects multiple device wipe commands executed via Microsoft Intune within a short timeframe, indicating potential destructive attack like Handala's mass wipe operation\nlogsource:\n  product: azure\n  service: auditlogs\ndetection:\n  selection:\n    ActivityDisplayName: 'Wipe device'\n    Category: 'DeviceManagement'\n  timeframe: 1h\n  condition: selection | count() > 50\nfalsepositives:\n  - Large-scale legitimate device retirement operations\n  - Mass device refresh projects\nlevel: critical",
+          "rule_hash": "ef06edf68f280e77"
+        },
+        {
+          "plain_english": "Detects VPN authentication attempts from commercial VPN providers and Starlink IP ranges that Handala uses to obfuscate their brute-force attacks against organizational VPN infrastructure.",
+          "rule": "title: VPN Access from Handala-Associated IP Ranges\nid: rule-0005\nstatus: experimental\ndescription: Detects VPN authentication attempts from commercial VPN nodes and Starlink IP ranges associated with Handala brute-force campaigns\nlogsource:\n  product: windows\n  service: security\ndetection:\n  selection:\n    EventID:\n      - 4624\n      - 4625\n    LogonType: 3\n    IpAddress|startswith:\n      - '169.150.227.'\n      - '149.88.26.'\n      - '188.92.255.'\n      - '209.198.131.'\n      - '146.185.219.235'\n  condition: selection\nfalsepositives:\n  - Legitimate remote workers using VPN services\n  - Employees traveling and using Starlink connectivity\nlevel: medium",
+          "rule_hash": "3ef66786213d2d20"
+        }
+      ],
+      "snort_rules": [
+        {
+          "plain_english": "Detects network connections to the Handala C2 server at 107.189.19.52 used to retrieve additional malicious payloads after initial compromise.",
+          "rule": "alert tcp $HOME_NET any -> 107.189.19.52 any (msg:\"HANDALA C2 Communication to Known Command Server\"; flow:established,to_server; threshold:type limit,track by_src,count 1,seconds 3600; classtype:trojan-activity; sid:9200001; rev:1;)",
+          "rule_hash": "823ea4bfcf3c1765"
+        },
+        {
+          "plain_english": "Detects outbound connections to the Israeli VPN node 146.185.219.235 used by Handala for data exfiltration and command infrastructure routing.",
+          "rule": "alert tcp $HOME_NET any -> 146.185.219.235 any (msg:\"HANDALA Egress via Israeli VPN Node\"; flow:established,to_server; threshold:type limit,track by_src,count 1,seconds 3600; classtype:policy-violation; sid:9200002; rev:1;)",
+          "rule_hash": "240177d15329d376"
+        },
+        {
+          "plain_english": "Detects multiple VPN authentication attempts from commercial VPN IP ranges associated with Handala's brute-force campaigns against organizational infrastructure.",
+          "rule": "alert tcp [169.150.227.0/24,149.88.26.0/24,188.92.255.0/24,209.198.131.0/24] any -> $HOME_NET [443,1194,1723] (msg:\"HANDALA VPN Brute Force from Known Attacker Ranges\"; flags:S; threshold:type threshold,track by_src,count 10,seconds 60; classtype:attempted-admin; sid:9200003; rev:1;)",
+          "rule_hash": "4ab869b179a332c5"
+        },
+        {
+          "plain_english": "Detects HTTP requests attempting to download PowerShell scripts with ADRecon-related filenames used by Handala for Active Directory reconnaissance.",
+          "rule": "alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS (msg:\"HANDALA ADRecon PowerShell Download Attempt\"; flow:established,to_server; content:\"GET\"; http_method; content:\"dra.ps1\"; http_uri; nocase; classtype:trojan-activity; sid:9200004; rev:1;)",
+          "rule_hash": "042ea00081bd89ff"
+        },
+        {
+          "plain_english": "Detects outbound SMB or web traffic containing the handala.bat filename, indicating potential lateral movement or distribution of the Handala wiper across the network.",
+          "rule": "alert tcp $HOME_NET any -> $HOME_NET [139,445,80,443] (msg:\"HANDALA Wiper Batch File Distribution\"; flow:established; content:\"handala.bat\"; nocase; classtype:trojan-activity; sid:9200005; rev:1;)",
+          "rule_hash": "e187565d78fe83cb"
+        }
+      ],
+      "hunting_queries": {
+        "splunk": [
+          {
+            "name": "Handala Wiper Execution Detection",
+            "description": "Detects execution of Handala wiper malware by MD5 hash and associated batch file distribution",
+            "query": "index=* (EventCode=4688 OR sourcetype=WinEventLog:Security OR sourcetype=sysmon) (MD5=\"5986ab04dd6b3d259935249741d3eff2\" OR MD5=\"3cb9dea916432ffb8784ac36d1f2d3cd\" OR CommandLine=\"*handala.bat*\" OR Image=\"*handala.bat*\") | table _time host user CommandLine ParentImage MD5 | sort -_time"
+          },
+          {
+            "name": "ADRecon PowerShell Reconnaissance Activity",
+            "description": "Detects execution of ADRecon framework used by Handala for Active Directory enumeration",
+            "query": "index=* (sourcetype=WinEventLog:Microsoft-Windows-PowerShell/Operational OR EventCode=4104 OR EventCode=4688) (ScriptBlockText=\"*dra.ps1*\" OR CommandLine=\"*dra.ps1*\" OR OriginalFileName=\"dra.ps1\") | table _time host user CommandLine ScriptBlockText | sort -_time"
+          },
+          {
+            "name": "VPN Brute Force from Handala Infrastructure",
+            "description": "Detects VPN authentication attempts from known Handala commercial VPN and Starlink IP ranges",
+            "query": "index=* (sourcetype=vpn OR sourcetype=firewall OR EventCode=4625 OR EventCode=4624) (src_ip=\"169.150.227.*\" OR src_ip=\"149.88.26.*\" OR src_ip=\"188.92.255.*\" OR src_ip=\"209.198.131.*\" OR src_ip=\"146.185.219.235\" OR src_ip=\"107.189.19.52\") | stats count by _time src_ip user dest action | where count > 5 | sort -_time"
+          }
+        ],
+        "kql": [
+          {
+            "name": "Handala Malware Hash Detection",
+            "description": "Identifies process or file events matching known Handala wiper MD5 hashes",
+            "query": "union DeviceProcessEvents, DeviceFileEvents | where MD5 in ('5986ab04dd6b3d259935249741d3eff2', '3cb9dea916432ffb8784ac36d1f2d3cd') or FileName has_any ('handala.bat', 'dra.ps1') | project Timestamp, DeviceName, AccountName, FileName, FolderPath, ProcessCommandLine, MD5, InitiatingProcessCommandLine | sort by Timestamp desc"
+          },
+          {
+            "name": "Handala C2 Network Communication",
+            "description": "Detects network connections to known Handala command and control infrastructure",
+            "query": "DeviceNetworkEvents | where RemoteIP in ('107.189.19.52', '146.185.219.235') or RemoteIP startswith '169.150.227.' or RemoteIP startswith '149.88.26.' or RemoteIP startswith '188.92.255.' or RemoteIP startswith '209.198.131.' | project Timestamp, DeviceName, InitiatingProcessFileName, InitiatingProcessCommandLine, RemoteIP, RemotePort, RemoteUrl | sort by Timestamp desc"
+          },
+          {
+            "name": "PowerShell Deletion Script with Handala Characteristics",
+            "description": "Detects PowerShell execution deleting user directories consistent with Handala wiper activity",
+            "query": "DeviceProcessEvents | where FileName =~ 'powershell.exe' and (ProcessCommandLine has_all ('Remove-Item', 'Recurse', 'Force') or ProcessCommandLine has 'dra.ps1') | where ProcessCommandLine has_any ('Users', 'Documents', 'Desktop') or ProcessCommandLine has 'dra.ps1' | project Timestamp, DeviceName, AccountName, ProcessCommandLine, InitiatingProcessFileName, MD5 | sort by Timestamp desc"
+          }
+        ],
+        "eql": [
+          {
+            "name": "Handala Wiper Distribution via GPO",
+            "description": "Detects sequence of batch file execution followed by wiper activity consistent with GPO-based distribution",
+            "query": "sequence by aid with maxspan=10m [process where event_simpleName=\"ProcessRollup2\" and (FileName=\"handala.bat\" or CommandLine=\"*handala.bat*\")] [process where event_simpleName=\"ProcessRollup2\" and (MD5HashData=\"5986ab04dd6b3d259935249741d3eff2\" or MD5HashData=\"3cb9dea916432ffb8784ac36d1f2d3cd\")]"
+          },
+          {
+            "name": "ADRecon Execution with Network Activity",
+            "description": "Correlates ADRecon PowerShell execution with subsequent network connections indicating data exfiltration",
+            "query": "sequence by aid with maxspan=30m [process where event_simpleName=\"ProcessRollup2\" and FileName=\"powershell.exe\" and CommandLine=\"*dra.ps1*\"] [network where event_simpleName=\"NetworkConnectIP4\" and (RemoteAddressIP4=\"107.189.19.52\" or RemoteAddressIP4=\"146.185.219.235\")]"
+          },
+          {
+            "name": "Brute Force VPN Access to Intune Wipe Activity",
+            "description": "Detects multiple failed authentication attempts followed by successful cloud admin activity consistent with Handala tactics",
+            "query": "sequence with maxspan=2h [authentication where event_simpleName=\"UserLogon\" and LogonType_decimal=\"3\" and success=\"false\"] with runs=10 [authentication where event_simpleName=\"UserLogon\" and success=\"true\"] [process where event_simpleName=\"ProcessRollup2\" and (CommandLine=\"*intune*\" or CommandLine=\"*wipe*\" or CommandLine=\"*devicemanagement*\")]"
+          }
+        ]
+      },
+      "caldera_scenario": {}
+    },
+    {
+      "id": 4,
+      "title": "Arkanix Stealer: a C++ & Python infostealer",
+      "source_name": "Kaspersky Securelist",
+      "url": "https://securelist.com/arkanix-stealer/119006/",
+      "published_at": "Thu, 19 Fe",
+      "extracted_at": "2026-03-19",
+      "threat_actor": "",
+      "malware_family": "Arkanix Stealer",
+      "campaign_name": "",
+      "analyst_summary": "An unknown threat actor is distributing Arkanix Stealer through Python loader scripts disguised with social engineering lures like \"discord_nitro_code_validator_right_aligned.py\" that download the stealer payload from arkanix[.]pw infrastructure. The malware employs process injection and software packing techniques to evade detection while targeting credential theft from compromised machines. The campaign demonstrates increasing sophistication in Python-based malware delivery, using multi-stage execution from initial loader to final stealer payload.",
+      "severity": "Critical",
+      "quality": "enriched",
+      "ioc_count": 36,
+      "ttp_count": 18,
+      "sigma_count": 5,
+      "snort_count": 5,
+      "query_count": 9,
+      "caldera_count": 5,
+      "enrichment_count": 3,
+      "enrichment_sources": [
+        {
+          "url": "https://hivepro.com/threat-advisory/arkanix-stealer-fast-evolving-design-driving-widespread-compromise/",
+          "name": "hivepro.com",
+          "text_length": 7593
+        },
+        {
+          "url": "https://blog.seclookup.com/analysis-of-arkanix-stealer-a-dual-mode-infostealer-leveraging-chromelevator-and-dynamic-configuration",
+          "name": "blog.seclookup.com",
+          "text_length": 6273
+        },
+        {
+          "url": "https://securityarsenal.com/blog/arkanix-stealer-dissecting-the-ai-assisted-malware-experiment-on-the-dark-web",
+          "name": "securityarsenal.com",
+          "text_length": 5445
+        }
+      ],
+      "iocs": [
+        {
+          "type": "hash_md5",
+          "value": "208fa7e01f72a50334f3d7607f6b82bf",
+          "confidence": "high",
+          "context": "Python loader script responsible for downloading and executing the Python-based version of the Arkanix infostealer.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "filename",
+          "value": "discord_nitro_code_validator_right_aligned.py",
+          "confidence": "high",
+          "context": "Python loader script used to download and execute Arkanix stealer.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "filename",
+          "value": "steam_account_checker_pro_v1.py",
+          "confidence": "medium",
+          "context": "Loader script filename suggesting phishing as the initial infection vector.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "filename",
+          "value": "discord_nitro_checker.py",
+          "confidence": "medium",
+          "context": "Loader script filename suggesting phishing as the initial infection vector.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "filename",
+          "value": "TikTokAccountBotter.exe",
+          "confidence": "medium",
+          "context": "Loader script filename suggesting phishing as the initial infection vector.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "url",
+          "value": "hxxps://arkanix[.]pw/api/session/create",
+          "confidence": "high",
+          "context": "Endpoint used by the loader to register the compromised machine on the C2 panel.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "url",
+          "value": "hxxps://arkanix[.]pw/stealer.py",
+          "confidence": "high",
+          "context": "Endpoint from which the Python stealer payload is downloaded by the loader.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "domain",
+          "value": "arkanix[.]pw",
+          "confidence": "high",
+          "context": "Command and control domain used by the release version of the native stealer implementation.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "hash_md5",
+          "value": "af8fd03c1ec81811acf16d4182f3b5e1",
+          "confidence": "high",
+          "context": "Python implementation of the Arkanix stealer downloaded from the stealer.py endpoint.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "url",
+          "value": "hxxps://arkanix[.]pw/api/features/{payload_id}",
+          "confidence": "high",
+          "context": "Endpoint used to dynamically update the stealer's configurable feature list.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "url",
+          "value": "hxxps://arkanix[.]pw/upload_dropper.py",
+          "confidence": "high",
+          "context": "Endpoint from which an additional dropper script is downloaded and executed.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "filepath",
+          "value": "%TEMP%\\upd_{random 8-byte name}.py",
+          "confidence": "medium",
+          "context": "Path where the dropper script is saved after downloading from the C2.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "filepath",
+          "value": "%LOCALAPPDATA%\\Arkanix_lol\\%info_class%.json",
+          "confidence": "medium",
+          "context": "Path where collected information is serialized and saved by the stealer.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "url",
+          "value": "hxxps://ipapi[.]co/json/",
+          "confidence": "medium",
+          "context": "Endpoint queried to verify whether the associated IP address belongs to a known VPN, proxy, or Tor exit node.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "domain",
+          "value": "ipapi[.]co",
+          "confidence": "medium",
+          "context": "Domain queried to verify whether the associated IP address belongs to a known VPN, proxy, or Tor exit node.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "filepath",
+          "value": "%APPDATA%\\Roaming\\Telegram Desktop\\tdata",
+          "confidence": "medium",
+          "context": "Directory from which Telegram data is collected and zipped by the stealer.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "filename",
+          "value": "tdata_session.zip",
+          "confidence": "medium",
+          "context": "Archive filename used when transmitting stolen Telegram data to the C2 endpoint.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "url",
+          "value": "hxxps://arkanix[.]pw/delivery",
+          "confidence": "high",
+          "context": "Endpoint to which the Telegram data archive is transmitted.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "url",
+          "value": "hxxps://arkanix[.]pw/api/chrome-grabber-template/{payload_id}",
+          "confidence": "high",
+          "context": "Endpoint from which the Chrome grabber module is downloaded.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "url",
+          "value": "hxxps://arkanix[.]pw/api/wallet-patcher/{payload_id}",
+          "confidence": "high",
+          "context": "Endpoint from which the Wallet patcher module is downloaded.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "url",
+          "value": "hxxps://arkanix[.]pw/api/extra-collector/{payload_id}",
+          "confidence": "high",
+          "context": "Endpoint from which the Extra collector module is downloaded.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "url",
+          "value": "hxxps://arkanix[.]pw/hvnc",
+          "confidence": "high",
+          "context": "Endpoint from which the HVNC module is downloaded and saved to the Startup directory.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "filepath",
+          "value": "%APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\hvnc.py",
+          "confidence": "medium",
+          "context": "Path where the HVNC module is saved to execute upon system boot.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "hash_md5",
+          "value": "a3fc46332dcd0a95e336f6927bae8bb7",
+          "confidence": "high",
+          "context": "Native implementation of the Arkanix stealer compiled as ArkanixStealer.exe.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "filename",
+          "value": "ArkanixStealer.exe",
+          "confidence": "high",
+          "context": "Native implementation of the Arkanix stealer.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "filename",
+          "value": "Telegram.exe",
+          "confidence": "medium",
+          "context": "Process terminated by the stealer before collecting Telegram data.",
+          "source_url": "https://securelist.com/arkanix-stealer/119006/"
+        },
+        {
+          "type": "url",
+          "value": "hxxps[:]//arkanix[.]pw/stealer[.]py",
+          "confidence": "high",
+          "context": "URLs associated with Arkanix Stealer command-and-control infrastructure and payload delivery.",
+          "source_url": "https://hivepro.com/threat-advisory/arkanix-stealer-fast-evolving-design-driving-widespread-compromise/",
+          "from_enrichment": true
+        },
+        {
+          "type": "url",
+          "value": "hxxps[:]//arkanix[.]pw/delivery",
+          "confidence": "high",
+          "context": "URLs associated with Arkanix Stealer command-and-control infrastructure and payload delivery.",
+          "source_url": "https://hivepro.com/threat-advisory/arkanix-stealer-fast-evolving-design-driving-widespread-compromise/",
+          "from_enrichment": true
+        },
+        {
+          "type": "url",
+          "value": "hxxps[:]//arkanix[.]pw/api/upload/direct",
+          "confidence": "high",
+          "context": "URLs associated with Arkanix Stealer command-and-control infrastructure used for data exfiltration.",
+          "source_url": "https://hivepro.com/threat-advisory/arkanix-stealer-fast-evolving-design-driving-widespread-compromise/",
+          "from_enrichment": true
+        },
+        {
+          "type": "hash_sha256",
+          "value": "6ea644285d7d24e09689ef46a9e131483b6763bc14f336060afaeffe37e4beb5",
+          "confidence": "high",
+          "context": "SHA256 hash identified as indicator of compromise for Arkanix Stealer malware samples.",
+          "source_url": "https://hivepro.com/threat-advisory/arkanix-stealer-fast-evolving-design-driving-widespread-compromise/",
+          "from_enrichment": true
+        },
+        {
+          "type": "hash_sha256",
+          "value": "6960d27fea1f5b28565cd240977b531cc8a195188fc81fa24c924da4f59a1389",
+          "confidence": "high",
+          "context": "SHA256 hash identified as indicator of compromise for Arkanix Stealer malware samples.",
+          "source_url": "https://hivepro.com/threat-advisory/arkanix-stealer-fast-evolving-design-driving-widespread-compromise/",
+          "from_enrichment": true
+        },
+        {
+          "type": "domain",
+          "value": "arkanix[.]ru",
+          "confidence": "high",
+          "context": "These domains were confirmed malicious by SecLookup's threat intelligence platform and identified as command-and-control infrastructure.",
+          "source_url": "https://blog.seclookup.com/analysis-of-arkanix-stealer-a-dual-mode-infostealer-leveraging-chromelevator-and-dynamic-configuration",
+          "from_enrichment": true
+        },
+        {
+          "type": "filepath",
+          "value": "User Data",
+          "confidence": "medium",
+          "context": "Upon execution, the malware attempts to locate browser data directories (e.g., Chrome's User Data folder or Edge's Web Data).",
+          "source_url": "https://securityarsenal.com/blog/arkanix-stealer-dissecting-the-ai-assisted-malware-experiment-on-the-dark-web",
+          "from_enrichment": true
+        },
+        {
+          "type": "filepath",
+          "value": "Web Data",
+          "confidence": "medium",
+          "context": "Upon execution, the malware attempts to locate browser data directories (e.g., Chrome's User Data folder or Edge's Web Data).",
+          "source_url": "https://securityarsenal.com/blog/arkanix-stealer-dissecting-the-ai-assisted-malware-experiment-on-the-dark-web",
+          "from_enrichment": true
+        },
+        {
+          "type": "filepath",
+          "value": "Login Data",
+          "confidence": "medium",
+          "context": "KQL query detects suspicious processes attempting to access sensitive browser data directories including Login Data.",
+          "source_url": "https://securityarsenal.com/blog/arkanix-stealer-dissecting-the-ai-assisted-malware-experiment-on-the-dark-web",
+          "from_enrichment": true
+        },
+        {
+          "type": "domain",
+          "value": "api[.]telegram[.]org",
+          "confidence": "high",
+          "context": "Stolen data is sent directly to a Telegram API token controlled by the attacker, and detection includes looking for connections to api.telegram.org.",
+          "source_url": "https://securityarsenal.com/blog/arkanix-stealer-dissecting-the-ai-assisted-malware-experiment-on-the-dark-web",
+          "from_enrichment": true
+        }
+      ],
+      "ttps": [
+        {
+          "technique_id": "T1204.002",
+          "technique_name": "Malicious File",
+          "tactic": "Execution",
+          "description": "Arkanix Stealer is disguised as legitimate software tools to prompt users into executing malicious payloads",
+          "evidence": "The malware is packaged as legitimate software tools to prompt users into executing malicious payloads",
+          "source_url": "https://hivepro.com/threat-advisory/arkanix-stealer-fast-evolving-design-driving-widespread-compromise/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1059.006",
+          "technique_name": "Python",
+          "tactic": "Execution",
+          "description": "Initial Arkanix Stealer variant relies on Python, unpacking embedded Python environment and executing malicious payload from memory",
+          "evidence": "The Arkanix Stealer Python variant relies on Nuitka to produce standalone executable files. Once launched, the Arkanix malware unpacks its embedded Python environment, executes the malicious payload directly from memory",
+          "source_url": "https://hivepro.com/threat-advisory/arkanix-stealer-fast-evolving-design-driving-widespread-compromise/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1027.002",
+          "technique_name": "Software Packing",
+          "tactic": "Defense Evasion",
+          "description": "Arkanix Stealer uses Nuitka to produce standalone executable files with embedded Python environment",
+          "evidence": "The Arkanix Stealer Python variant relies on Nuitka to produce standalone executable files",
+          "source_url": "https://hivepro.com/threat-advisory/arkanix-stealer-fast-evolving-design-driving-widespread-compromise/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1055",
+          "technique_name": "Process Injection",
+          "tactic": "Defense Evasion",
+          "description": "Chrome Elevator tool injects malicious code directly into Chrome browser process to bypass App-Bound Encryption",
+          "evidence": "The C++ Arkanix Stealer also deploys a sophisticated post-exploitation tool called Chrome Elevator, which injects malicious code directly into the Chrome browser process to bypass App-Bound Encryption added in Chrome 127",
+          "source_url": "https://hivepro.com/threat-advisory/arkanix-stealer-fast-evolving-design-driving-widespread-compromise/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1036.005",
+          "technique_name": "Match Legitimate Name or Location",
+          "tactic": "Defense Evasion",
+          "description": "Arkanix Stealer is disguised as legitimate software to drive user execution",
+          "evidence": "Arkanix Stealer represents a rapidly advancing commodity infostealer malware circulating through Discord channels and underground forums, disguised as legitimate software to drive user execution",
+          "source_url": "https://hivepro.com/threat-advisory/arkanix-stealer-fast-evolving-design-driving-widespread-compromise/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1555.003",
+          "technique_name": "Credentials from Web Browsers",
+          "tactic": "Credential Access",
+          "description": "Arkanix Stealer targets Chromium-based browsers to steal cookies and stored credentials using Chrome Elevator bypass",
+          "evidence": "This Chrome Elevator technique enables direct access to cookies and stored credentials by operating inside Chrome's authorized environment. Arkanix malware supports data extraction from a wide range of Chromium-based browsers including Chrome, Edge, Opera, Vivaldi, Tor, and Yandex browsers",
+          "source_url": "https://hivepro.com/threat-advisory/arkanix-stealer-fast-evolving-design-driving-widespread-compromise/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1552.001",
+          "technique_name": "Credentials In Files",
+          "tactic": "Credential Access",
+          "description": "Arkanix Stealer extracts cryptocurrency wallet data from standalone clients and browser extensions",
+          "evidence": "This Arkanix Stealer malware targets a wide range of Chromium-based browsers and cryptocurrency wallet extensions, while also harvesting wallet data from standalone clients such as Electrum and Ethereum applications. The infostealer further targets browser extensions tied to cryptocurrency wallets such as MetaMask, Binance, and Exodus",
+          "source_url": "https://hivepro.com/threat-advisory/arkanix-stealer-fast-evolving-design-driving-widespread-compromise/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1005",
+          "technique_name": "Data from Local System",
+          "tactic": "Collection",
+          "description": "Arkanix Stealer collects cryptocurrency wallet data and credentials from local applications and browsers",
+          "evidence": "Arkanix Stealer also pulls wallet information from standalone cryptocurrency applications including Electrum and Ethereum clients, demonstrating comprehensive targeting of cryptocurrency assets across multiple platforms and application types",
+          "source_url": "https://hivepro.com/threat-advisory/arkanix-stealer-fast-evolving-design-driving-widespread-compromise/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1041",
+          "technique_name": "Exfiltration Over C2 Channel",
+          "tactic": "Exfiltration",
+          "description": "Stolen data is exfiltrated to Arkanix web panel that manages configuration and stores credential data",
+          "evidence": "The Arkanix Stealer web panel manages customer accounts, coordinates configuration updates, and stores stolen credential data",
+          "source_url": "https://hivepro.com/threat-advisory/arkanix-stealer-fast-evolving-design-driving-widespread-compromise/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1071.001",
+          "technique_name": "Web Protocols",
+          "tactic": "Command and Control",
+          "description": "Arkanix Stealer pulls malicious code from command-and-control server via web protocols",
+          "evidence": "executes the malicious payload directly from memory, and pulls further malicious code from the command-and-control server infrastructure",
+          "source_url": "https://hivepro.com/threat-advisory/arkanix-stealer-fast-evolving-design-driving-widespread-compromise/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1176",
+          "technique_name": "Browser Extensions",
+          "tactic": "Persistence",
+          "description": "Arkanix integrates ChromElevator to interact with browser process memory and target browser extension architecture to bypass modern web security features.",
+          "evidence": "The integration of ChromElevator allows the malware to interact with the browser process memory. This technique is critical for bypassing modern web security features like password managers that may mask passwords. It effectively targets the browser extension architecture.",
+          "source_url": "https://blog.seclookup.com/analysis-of-arkanix-stealer-a-dual-mode-infostealer-leveraging-chromelevator-and-dynamic-configuration",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1082",
+          "technique_name": "System Information Discovery",
+          "tactic": "Discovery",
+          "description": "The malware enumerates system details to tailor its exfiltration efforts or determine if the target machine is suitable for further compromise.",
+          "evidence": "The malware enumerates system details to tailor its exfiltration efforts or to determine if the target machine is a suitable host for further compromise.",
+          "source_url": "https://blog.seclookup.com/analysis-of-arkanix-stealer-a-dual-mode-infostealer-leveraging-chromelevator-and-dynamic-configuration",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1566",
+          "technique_name": "Phishing",
+          "tactic": "Initial Access",
+          "description": "Arkanix Stealer is distributed through phishing campaigns masquerading as cracked software or legitimate utilities",
+          "evidence": "Phishing emails containing malicious attachments or links to fake download sites",
+          "source_url": "https://securityarsenal.com/blog/arkanix-stealer-dissecting-the-ai-assisted-malware-experiment-on-the-dark-web",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1059.001",
+          "technique_name": "PowerShell",
+          "tactic": "Execution",
+          "description": "Info-stealers often use PowerShell to dump memory or manipulate files, including encoded commands",
+          "evidence": "Info-stealers often use PowerShell to dump memory or manipulate files. Monitor for encoded commands.",
+          "source_url": "https://securityarsenal.com/blog/arkanix-stealer-dissecting-the-ai-assisted-malware-experiment-on-the-dark-web",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1539",
+          "technique_name": "Steal Web Session Cookie",
+          "tactic": "Credential Access",
+          "description": "Arkanix targets browser cookies as part of its data theft operations",
+          "evidence": "The malware targets the usual 'low-hanging fruit': browser credentials, cookies, autocomplete data, and cryptocurrency wallet information",
+          "source_url": "https://securityarsenal.com/blog/arkanix-stealer-dissecting-the-ai-assisted-malware-experiment-on-the-dark-web",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1053.005",
+          "technique_name": "Scheduled Task",
+          "tactic": "Persistence",
+          "description": "The malware may create scheduled tasks to maintain persistence on the infected system",
+          "evidence": "The malware may create scheduled tasks or registry run keys to maintain persistence",
+          "source_url": "https://securityarsenal.com/blog/arkanix-stealer-dissecting-the-ai-assisted-malware-experiment-on-the-dark-web",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1547.001",
+          "technique_name": "Registry Run Keys / Startup Folder",
+          "tactic": "Persistence",
+          "description": "The malware may create registry run keys to maintain persistence on the infected system",
+          "evidence": "The malware may create scheduled tasks or registry run keys to maintain persistence",
+          "source_url": "https://securityarsenal.com/blog/arkanix-stealer-dissecting-the-ai-assisted-malware-experiment-on-the-dark-web",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1567.002",
+          "technique_name": "Exfiltration to Cloud Storage",
+          "tactic": "Exfiltration",
+          "description": "Stolen data is exfiltrated directly to a Telegram API controlled by the attacker",
+          "evidence": "Stolen data is packaged and sent via HTTP POST requests to a C2 server or directly to a Telegram API token controlled by the attacker",
+          "source_url": "https://securityarsenal.com/blog/arkanix-stealer-dissecting-the-ai-assisted-malware-experiment-on-the-dark-web",
+          "from_enrichment": true
+        }
+      ],
+      "sigma_rules": [
+        {
+          "plain_english": "Detects execution of Python scripts with suspicious filenames mimicking Discord Nitro, Steam, or TikTok tools that Arkanix uses to trick victims into running the loader stage.",
+          "rule": "title: Arkanix Stealer Loader Script Execution\nid: rule-0001\nstatus: experimental\ndescription: Detects execution of Python loader scripts used by Arkanix Stealer with social engineering filenames\nlogsource:\n  category: process_creation\n  product: windows\ndetection:\n  selection:\n    - Image|endswith: '\\python.exe'\n      CommandLine|contains:\n        - 'discord_nitro_code_validator_right_aligned.py'\n        - 'steam_account_checker_pro_v1.py'\n        - 'discord_nitro_checker.py'\n    - OriginalFileName: 'TikTokAccountBotter.exe'\n  condition: selection\nfalsepositives:\n  - Legitimate Discord or Steam development scripts (unlikely with these exact names)\nlevel: high",
+          "rule_hash": "20a6f7c4aec98e82"
+        },
+        {
+          "plain_english": "Detects when Python scripts create files in the Arkanix_lol directory under LocalAppData, which is where the stealer saves exfiltrated credential and wallet data before transmission.",
+          "rule": "title: Arkanix Stealer Data Staging Directory\nid: rule-0002\nstatus: experimental\ndescription: Detects file creation in Arkanix_lol staging directory used by the stealer\nlogsource:\n  category: file_event\n  product: windows\ndetection:\n  selection:\n    TargetFilename|contains: '\\AppData\\Local\\Arkanix_lol\\'\n    TargetFilename|endswith: '.json'\n  condition: selection\nfalsepositives:\n  - None expected - Arkanix_lol is unique to this malware\nlevel: critical",
+          "rule_hash": "688cbd9a1086874f"
+        },
+        {
+          "plain_english": "Detects when Python downloads and saves files with the upd_ prefix in the Temp directory, indicating the dropper stage where Arkanix fetches additional malicious modules from its C2.",
+          "rule": "title: Arkanix Stealer Dropper Download to Temp\nid: rule-0003\nstatus: experimental\ndescription: Detects dropper script saved to Temp directory by Arkanix loader\nlogsource:\n  category: file_event\n  product: windows\ndetection:\n  selection:\n    TargetFilename|contains: '\\AppData\\Local\\Temp\\upd_'\n    TargetFilename|endswith: '.py'\n  condition: selection\nfalsepositives:\n  - Legitimate software using similar naming conventions (rare)\nlevel: high",
+          "rule_hash": "8a9d4386831df0dd"
+        },
+        {
+          "plain_english": "Detects when processes access the Telegram tdata folder and create a zip archive, which is how Arkanix packages stolen Telegram sessions for exfiltration to its C2 panel.",
+          "rule": "title: Arkanix Stealer Telegram Data Collection\nid: rule-0004\nstatus: experimental\ndescription: Detects collection and zipping of Telegram data by Arkanix Stealer\nlogsource:\n  category: process_creation\n  product: windows\ndetection:\n  selection:\n    CommandLine|contains|all:\n      - 'Telegram Desktop\\tdata'\n      - 'tdata_session.zip'\n  condition: selection\nfalsepositives:\n  - Legitimate Telegram backup tools\nlevel: high",
+          "rule_hash": "6776018fbe46307c"
+        },
+        {
+          "plain_english": "Detects Python processes making network connections to the arkanix.pw domain on API endpoints that register victims, download stealer payloads, or update malware configuration.",
+          "rule": "title: Arkanix Stealer C2 Communication\nid: rule-0005\nstatus: experimental\ndescription: Detects network connections to Arkanix Stealer C2 infrastructure\nlogsource:\n  category: network_connection\n  product: windows\ndetection:\n  selection:\n    Initiated: 'true'\n    DestinationHostname|endswith: 'arkanix.pw'\n    DestinationPort: 443\n    Image|endswith:\n      - '\\python.exe'\n      - '\\pythonw.exe'\n  condition: selection\nfalsepositives:\n  - None expected\nlevel: critical",
+          "rule_hash": "1579b25e4de21f2b"
+        }
+      ],
+      "snort_rules": [
+        {
+          "plain_english": "Detects when victims connect to the Arkanix C2 session creation endpoint that registers newly compromised machines and establishes initial command-and-control communication.",
+          "rule": "alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTPS_PORTS (msg:\"MALWARE Arkanix Stealer C2 Session Registration\"; flow:established,to_server; content:\"/api/session/create\"; http_uri; content:\"arkanix.pw\"; content:\"Host|3a|\"; http_header; fast_pattern; classtype:trojan-activity; sid:9200001; rev:1; metadata:impact_flag red, signature_severity major, attack_target Client_Endpoint, malware_family Arkanix;)",
+          "rule_hash": "98db27d3f4531fca"
+        },
+        {
+          "plain_english": "Detects download of the main Python stealer payload from arkanix.pw which happens after the loader registers the victim and requests the actual credential-stealing module.",
+          "rule": "alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTPS_PORTS (msg:\"MALWARE Arkanix Stealer Payload Download\"; flow:established,to_server; content:\"/stealer.py\"; http_uri; content:\"arkanix.pw\"; content:\"Host|3a|\"; http_header; fast_pattern; classtype:trojan-activity; sid:9200002; rev:1; metadata:impact_flag red, signature_severity critical, attack_target Client_Endpoint, malware_family Arkanix;)",
+          "rule_hash": "f2d804c6227988e2"
+        },
+        {
+          "plain_english": "Detects requests to the Arkanix features API endpoint that dynamically updates the stealer configuration to enable or disable specific credential harvesting modules on infected systems.",
+          "rule": "alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTPS_PORTS (msg:\"MALWARE Arkanix Stealer Configuration Update\"; flow:established,to_server; content:\"/api/features/\"; http_uri; content:\"arkanix.pw\"; content:\"Host|3a|\"; http_header; fast_pattern; classtype:trojan-activity; sid:9200003; rev:1; metadata:impact_flag red, signature_severity major, attack_target Client_Endpoint, malware_family Arkanix;)",
+          "rule_hash": "4f9320319f3c3a6d"
+        },
+        {
+          "plain_english": "Detects exfiltration of stolen Telegram session data to the Arkanix delivery endpoint where credential archives containing tdata_session.zip are uploaded for threat actor retrieval.",
+          "rule": "alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTPS_PORTS (msg:\"MALWARE Arkanix Stealer Telegram Data Exfiltration\"; flow:established,to_server; content:\"/delivery\"; http_uri; content:\"arkanix.pw\"; content:\"Host|3a|\"; http_header; content:\"tdata_session.zip\"; http_client_body; fast_pattern; classtype:trojan-activity; sid:9200004; rev:1; metadata:impact_flag red, signature_severity critical, attack_target Client_Endpoint, malware_family Arkanix;)",
+          "rule_hash": "490b75cee890f0f1"
+        },
+        {
+          "plain_english": "Detects download of the Chrome Elevator browser injection module that Arkanix uses to bypass Chrome's App-Bound Encryption and steal cookies and stored credentials directly from browser memory.",
+          "rule": "alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTPS_PORTS (msg:\"MALWARE Arkanix Stealer Chrome Grabber Module Download\"; flow:established,to_server; content:\"/api/chrome-grabber-template/\"; http_uri; content:\"arkanix.pw\"; content:\"Host|3a|\"; http_header; fast_pattern; classtype:trojan-activity; sid:9200005; rev:1; metadata:impact_flag red, signature_severity critical, attack_target Client_Endpoint, malware_family Arkanix;)",
+          "rule_hash": "dcb3089846ac17b2"
+        }
+      ],
+      "hunting_queries": {
+        "splunk": [
+          {
+            "name": "Arkanix Loader Python Execution",
+            "description": "Detects execution of Python scripts with Arkanix-related filenames disguised as legitimate tools",
+            "query": "index=* (sourcetype=WinEventLog:Security OR sourcetype=XmlWinEventLog:Microsoft-Windows-Sysmon/Operational) EventCode IN (1, 4688) (CommandLine=\"*discord_nitro_code_validator_right_aligned.py*\" OR CommandLine=\"*steam_account_checker_pro_v1.py*\" OR CommandLine=\"*discord_nitro_checker.py*\" OR CommandLine=\"*TikTokAccountBotter.exe*\" OR (CommandLine=\"*python*\" AND (CommandLine=\"*discord*nitro*\" OR CommandLine=\"*steam*checker*\" OR CommandLine=\"*account*botter*\"))) | table _time host user CommandLine ParentCommandLine"
+          },
+          {
+            "name": "Arkanix C2 Network Communication",
+            "description": "Detects network connections to known Arkanix C2 infrastructure and endpoints",
+            "query": "index=* (sourcetype=stream:http OR sourcetype=proxy OR sourcetype=firewall) (dest=\"arkanix.pw\" OR url=\"*arkanix.pw*\" OR dest=\"ipapi.co\") (uri_path=\"*/api/session/create*\" OR uri_path=\"*/stealer.py*\" OR uri_path=\"*/api/features/*\" OR uri_path=\"*/upload_dropper.py*\" OR uri_path=\"*/delivery*\" OR uri_path=\"*/api/chrome-grabber-template/*\" OR uri_path=\"*/api/wallet-patcher/*\") | table _time src_ip dest url uri_path http_method"
+          },
+          {
+            "name": "Arkanix File Artifacts and Exfiltration Prep",
+            "description": "Detects creation of Arkanix-specific files in temp/appdata directories and Telegram data collection",
+            "query": "index=* (sourcetype=WinEventLog:Security OR sourcetype=XmlWinEventLog:Microsoft-Windows-Sysmon/Operational) EventCode IN (11, 4663) (TargetFilename=\"*\\\\Temp\\\\upd_*.py\" OR TargetFilename=\"*\\\\Arkanix_lol\\\\*.json\" OR TargetFilename=\"*tdata_session.zip*\" OR (TargetFilename=\"*\\\\Telegram Desktop\\\\tdata*\" AND (process_name=\"*python*\" OR process_name=\"*cmd.exe*\"))) | table _time host user TargetFilename process_name CommandLine"
+          }
+        ],
+        "kql": [
+          {
+            "name": "Arkanix Python Loader Execution",
+            "description": "Identifies execution of Python interpreters with suspicious Arkanix loader filenames or hash matches",
+            "query": "DeviceProcessEvents | where (ProcessCommandLine has_any (\"discord_nitro_code_validator_right_aligned.py\", \"steam_account_checker_pro_v1.py\", \"discord_nitro_checker.py\") or FileName =~ \"TikTokAccountBotter.exe\" or MD5 in (\"208fa7e01f72a50334f3d7607f6b82bf\", \"af8fd03c1ec81811acf16d4182f3b5e1\")) or (FileName has_any (\"python.exe\", \"pythonw.exe\") and ProcessCommandLine has_any (\"discord\", \"steam\", \"nitro\", \"checker\", \"botter\")) | project Timestamp, DeviceName, AccountName, FileName, ProcessCommandLine, MD5, InitiatingProcessFileName, InitiatingProcessCommandLine"
+          },
+          {
+            "name": "Arkanix C2 Network Connections",
+            "description": "Detects network connections to Arkanix C2 domains and IP enumeration services",
+            "query": "DeviceNetworkEvents | where RemoteUrl has_any (\"arkanix.pw\", \"ipapi.co\") or RemoteUrl has_any (\"/api/session/create\", \"/stealer.py\", \"/api/features/\", \"/upload_dropper.py\", \"/delivery\", \"/api/chrome-grabber-template/\", \"/api/wallet-patcher/\") | project Timestamp, DeviceName, InitiatingProcessFileName, InitiatingProcessCommandLine, RemoteUrl, RemoteIP, RemotePort"
+          },
+          {
+            "name": "Arkanix File System Artifacts",
+            "description": "Detects creation of Arkanix-related files in temp directories, Arkanix_lol folder, and Telegram data access",
+            "query": "DeviceFileEvents | where (FolderPath contains \"\\\\Temp\\\\upd_\" and FileName endswith \".py\") or FolderPath contains \"\\\\Arkanix_lol\\\\\" or FileName =~ \"tdata_session.zip\" or (FolderPath contains \"\\\\Telegram Desktop\\\\tdata\" and InitiatingProcessFileName in~ (\"python.exe\", \"pythonw.exe\", \"cmd.exe\", \"powershell.exe\")) | project Timestamp, DeviceName, ActionType, FileName, FolderPath, InitiatingProcessFileName, InitiatingProcessCommandLine, MD5"
+          }
+        ],
+        "eql": [
+          {
+            "name": "Arkanix Python Loader to C2 Communication",
+            "description": "Detects sequence of Python execution with suspicious filename followed by network connection to Arkanix C2",
+            "query": "sequence by aid with maxspan=5m [ProcessRollup2 event_simpleName=\"ProcessRollup2\" (ImageFileName=\"*\\\\python.exe\" OR ImageFileName=\"*\\\\pythonw.exe\") (CommandLine=\"*discord*nitro*\" OR CommandLine=\"*steam*checker*\" OR CommandLine=\"*TikTokAccountBotter*\" OR FileName=\"discord_nitro_code_validator_right_aligned.py\" OR FileName=\"steam_account_checker_pro_v1.py\")] [DnsRequest event_simpleName=\"DnsRequest\" DomainName=\"arkanix.pw\"]"
+          },
+          {
+            "name": "Arkanix Credential Harvesting Activity",
+            "description": "Detects process injection into Chrome/Edge followed by file access to browser credential stores",
+            "query": "sequence by aid with maxspan=2m [ProcessRollup2 event_simpleName=\"ProcessRollup2\" (TargetProcessId_decimal>0 AND (ImageFileName=\"*\\\\chrome.exe\" OR ImageFileName=\"*\\\\msedge.exe\" OR ImageFileName=\"*\\\\opera.exe\"))] [FileOpenInfo event_simpleName=\"FileOpenInfo\" (FilePath=\"*\\\\AppData\\\\Local\\\\*\\\\User Data\\\\*\" OR FilePath=\"*\\\\Login Data*\" OR FilePath=\"*\\\\Cookies*\")]"
+          },
+          {
+            "name": "Arkanix Telegram Data Exfiltration",
+            "description": "Detects Telegram tdata directory access followed by zip file creation and network upload activity",
+            "query": "sequence by aid with maxspan=10m [FileOpenInfo event_simpleName=\"FileOpenInfo\" FilePath=\"*\\\\Telegram Desktop\\\\tdata\\\\*\"] [FileOpenInfo event_simpleName=\"FileOpenInfo\" FileName=\"tdata_session.zip\"] [NetworkConnectIP4 event_simpleName=\"NetworkConnectIP4\" RemoteAddressIP4=\"*\"]"
+          }
+        ]
+      },
+      "caldera_scenario": {
+        "adversary": {
+          "id": "arkanix-stealer",
+          "name": "Arkanix Stealer",
+          "description": "Arkanix Stealer is a rapidly evolving commodity infostealer distributed through Discord and underground forums, disguised as legitimate software tools. It targets Chromium-based browsers and cryptocurrency wallets, utilizing Python-based execution and sophisticated browser injection techniques like Chrome Elevator to bypass modern security protections including App-Bound Encryption.",
+          "tags": [
+            "stealer",
+            "infostealer",
+            "cryptocurrency",
+            "credential-theft"
+          ],
+          "atomic_ordering": [
+            "arkanix-001",
+            "arkanix-002",
+            "arkanix-003",
+            "arkanix-004",
+            "arkanix-005"
+          ]
+        },
+        "abilities": [
+          {
+            "id": "arkanix-001",
+            "name": "Simulate User Execution of Disguised Payload",
+            "plain_english": "Tests whether security awareness training and endpoint controls detect users launching files disguised as legitimate software installers - the initial delivery method Arkanix uses to trick victims into executing the stealer.",
+            "tactic": "execution",
+            "technique_id": "T1204.002",
+            "technique_name": "Malicious File",
+            "ability_yaml": "- id: arkanix-001\n  name: Simulate User Execution of Disguised Payload\n  description: Simulates Arkanix Stealer disguised as legitimate software to test user execution controls\n  tactic: execution\n  technique:\n    attack_id: T1204.002\n    name: Malicious File\n  platforms:\n    windows:\n      psh:\n        command: |\n          Write-Host '[SIM] User executing apparent legitimate installer'\n          $fakePath = \"$env:TEMP\\LegitimateApp_Setup.exe\"\n          echo '[SIM] Arkanix payload disguised as software tool' > $fakePath\n          Write-Host '[SIM] Simulated user double-click execution of disguised file'\n        cleanup: |\n          Remove-Item -Path \"$env:TEMP\\LegitimateApp_Setup.exe\" -Force -ErrorAction SilentlyContinue\n          Write-Host '[SIM] Cleanup: Removed simulated disguised file'\n    linux:\n      sh:\n        command: |\n          echo '[SIM] User executing apparent legitimate installer'\n          fake_path=\"/tmp/LegitimateApp_Setup.bin\"\n          echo '[SIM] Arkanix payload disguised as software tool' > \"$fake_path\"\n          echo '[SIM] Simulated user execution of disguised file'\n        cleanup: |\n          rm -f /tmp/LegitimateApp_Setup.bin\n          echo '[SIM] Cleanup: Removed simulated disguised file'",
+            "rule_hash": "a3bd0916afb00c18"
+          },
+          {
+            "id": "arkanix-002",
+            "name": "Simulate Python-Based Payload Execution",
+            "plain_english": "Tests whether EDR detects embedded Python interpreters executing payloads from memory - the technique Arkanix uses with Nuitka-compiled executables to run Python code without requiring Python installation.",
+            "tactic": "execution",
+            "technique_id": "T1059.006",
+            "technique_name": "Python",
+            "ability_yaml": "- id: arkanix-002\n  name: Simulate Python-Based Payload Execution\n  description: Simulates Arkanix Stealer unpacking embedded Python environment and executing from memory\n  tactic: execution\n  technique:\n    attack_id: T1059.006\n    name: Python\n  platforms:\n    windows:\n      psh:\n        command: |\n          Write-Host '[SIM] Unpacking embedded Python environment (Nuitka-style)'\n          $pythonSim = \"$env:TEMP\\embedded_python\"\n          New-Item -ItemType Directory -Path $pythonSim -Force | Out-Null\n          Write-Host '[SIM] Executing Python payload directly from memory simulation'\n          echo 'print(\"[SIM] Arkanix stealer payload executing\")' > \"$pythonSim\\payload.py\"\n          Write-Host '[SIM] Simulated in-memory Python execution complete'\n        cleanup: |\n          Remove-Item -Path \"$env:TEMP\\embedded_python\" -Recurse -Force -ErrorAction SilentlyContinue\n          Write-Host '[SIM] Cleanup: Removed simulated Python environment'\n    linux:\n      sh:\n        command: |\n          echo '[SIM] Unpacking embedded Python environment (Nuitka-style)'\n          python_sim=\"/tmp/embedded_python\"\n          mkdir -p \"$python_sim\"\n          echo '[SIM] Executing Python payload directly from memory simulation'\n          echo 'print(\"[SIM] Arkanix stealer payload executing\")' > \"$python_sim/payload.py\"\n          echo '[SIM] Simulated in-memory Python execution complete'\n        cleanup: |\n          rm -rf /tmp/embedded_python\n          echo '[SIM] Cleanup: Removed simulated Python environment'",
+            "rule_hash": "0849aee3d29559b4"
+          },
+          {
+            "id": "arkanix-003",
+            "name": "Simulate Process Injection into Browser",
+            "plain_english": "Tests whether EDR detects code injection into browser processes - the Chrome Elevator technique Arkanix uses to inject code directly into Chrome to bypass App-Bound Encryption and steal protected credentials.",
+            "tactic": "defense-evasion",
+            "technique_id": "T1055",
+            "technique_name": "Process Injection",
+            "ability_yaml": "- id: arkanix-003\n  name: Simulate Process Injection into Browser\n  description: Simulates Chrome Elevator injecting code into Chrome browser process to bypass App-Bound Encryption\n  tactic: defense-evasion\n  technique:\n    attack_id: T1055\n    name: Process Injection\n  platforms:\n    windows:\n      psh:\n        command: |\n          Write-Host '[SIM] Chrome Elevator: Identifying Chrome browser process'\n          $chromeProc = Get-Process chrome -ErrorAction SilentlyContinue | Select-Object -First 1\n          if ($chromeProc) {\n            Write-Host \"[SIM] Simulating code injection into Chrome PID: $($chromeProc.Id)\"\n          } else {\n            Write-Host '[SIM] Chrome not running - simulating injection into browser process'\n          }\n          Write-Host '[SIM] Injected code operating inside Chrome authorized environment'\n          Write-Host '[SIM] Bypassing App-Bound Encryption (Chrome 127+) simulation'\n        cleanup: |\n          Write-Host '[SIM] Cleanup: No actual injection occurred - simulation only'\n    linux:\n      sh:\n        command: |\n          echo '[SIM] Chrome Elevator: Identifying Chrome browser process'\n          chrome_pid=$(pgrep chrome | head -n 1)\n          if [ -n \"$chrome_pid\" ]; then\n            echo \"[SIM] Simulating code injection into Chrome PID: $chrome_pid\"\n          else\n            echo '[SIM] Chrome not running - simulating injection into browser process'\n          fi\n          echo '[SIM] Injected code operating inside Chrome authorized environment'\n          echo '[SIM] Bypassing security protections simulation'\n        cleanup: |\n          echo '[SIM] Cleanup: No actual injection occurred - simulation only'",
+            "rule_hash": "bed761a866bcb1fa"
+          },
+          {
+            "id": "arkanix-004",
+            "name": "Simulate Browser Credential Harvesting",
+            "plain_english": "Tests whether security tools detect access to browser credential stores - the end goal of Arkanix's Chrome Elevator injection where it harvests cookies and stored passwords from Chromium-based browsers including Chrome, Edge, and Opera.",
+            "tactic": "credential-access",
+            "technique_id": "T1555.003",
+            "technique_name": "Credentials from Web Browsers",
+            "ability_yaml": "- id: arkanix-004\n  name: Simulate Browser Credential Harvesting\n  description: Simulates Arkanix Stealer accessing browser credential stores from multiple Chromium browsers\n  tactic: credential-access\n  technique:\n    attack_id: T1555.003\n    name: Credentials from Web Browsers\n  platforms:\n    windows:\n      psh:\n        command: |\n          Write-Host '[SIM] Accessing Chromium-based browser credential stores'\n          $browsers = @('Chrome', 'Edge', 'Opera', 'Vivaldi', 'Brave')\n          foreach ($browser in $browsers) {\n            Write-Host \"[SIM] Simulating credential extraction from $browser\"\n          }\n          $simOutput = \"$env:TEMP\\browser_creds_sim.txt\"\n          echo '[SIM] Harvested cookies and stored credentials' > $simOutput\n          Write-Host '[SIM] Chrome Elevator: Direct access to protected credential stores'\n        cleanup: |\n          Remove-Item -Path \"$env:TEMP\\browser_creds_sim.txt\" -Force -ErrorAction SilentlyContinue\n          Write-Host '[SIM] Cleanup: Removed simulated credential harvest output'\n    linux:\n      sh:\n        command: |\n          echo '[SIM] Accessing Chromium-based browser credential stores'\n          for browser in Chrome Edge Opera Vivaldi Brave; do\n            echo \"[SIM] Simulating credential extraction from $browser\"\n          done\n          sim_output=\"/tmp/browser_creds_sim.txt\"\n          echo '[SIM] Harvested cookies and stored credentials' > \"$sim_output\"\n          echo '[SIM] Direct access to protected credential stores'\n        cleanup: |\n          rm -f /tmp/browser_creds_sim.txt\n          echo '[SIM] Cleanup: Removed simulated credential harvest output'",
+            "rule_hash": "88f286b291053769"
+          },
+          {
+            "id": "arkanix-005",
+            "name": "Simulate Cryptocurrency Wallet Theft",
+            "plain_english": "Tests whether security controls detect access to cryptocurrency wallet files and extensions - Arkanix targets wallet data from standalone clients like Electrum and browser extensions like MetaMask and Binance to steal cryptocurrency assets.",
+            "tactic": "credential-access",
+            "technique_id": "T1552.001",
+            "technique_name": "Credentials In Files",
+            "ability_yaml": "- id: arkanix-005\n  name: Simulate Cryptocurrency Wallet Theft\n  description: Simulates Arkanix Stealer extracting cryptocurrency wallet data from standalone clients and browser extensions\n  tactic: credential-access\n  technique:\n    attack_id: T1552.001\n    name: Credentials In Files\n  platforms:\n    windows:\n      psh:\n        command: |\n          Write-Host '[SIM] Scanning for cryptocurrency wallet data'\n          $wallets = @('MetaMask', 'Binance', 'Exodus', 'Electrum', 'Ethereum')\n          foreach ($wallet in $wallets) {\n            Write-Host \"[SIM] Simulating wallet data extraction from $wallet\"\n          }\n          $simWallet = \"$env:TEMP\\crypto_wallets_sim.txt\"\n          echo '[SIM] Harvested wallet credentials and keys' > $simWallet\n          Write-Host '[SIM] Targeting browser extensions and standalone wallet clients'\n        cleanup: |\n          Remove-Item -Path \"$env:TEMP\\crypto_wallets_sim.txt\" -Force -ErrorAction SilentlyContinue\n          Write-Host '[SIM] Cleanup: Removed simulated wallet theft output'\n    linux:\n      sh:\n        command: |\n          echo '[SIM] Scanning for cryptocurrency wallet data'\n          for wallet in MetaMask Binance Exodus Electrum Ethereum; do\n            echo \"[SIM] Simulating wallet data extraction from $wallet\"\n          done\n          sim_wallet=\"/tmp/crypto_wallets_sim.txt\"\n          echo '[SIM] Harvested wallet credentials and keys' > \"$sim_wallet\"\n          echo '[SIM] Targeting browser extensions and standalone wallet clients'\n        cleanup: |\n          rm -f /tmp/crypto_wallets_sim.txt\n          echo '[SIM] Cleanup: Removed simulated wallet theft output'",
+            "rule_hash": "0356d75ac97f89d4"
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "title": "LeakNet ransomware uses ClickFix, Deno runtime in stealthy attacks",
+      "source_name": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/leaknet-ransomware-uses-clickfix-and-deno-runtime-for-stealthy-attacks/",
+      "published_at": "Tue, 17 Ma",
+      "extracted_at": "2026-03-19",
+      "threat_actor": "LeakNet",
+      "malware_family": "LeakNet ransomware",
+      "campaign_name": "",
+      "analyst_summary": "LeakNet ransomware operators are deploying their payload through a multi-stage infection chain that begins with malicious links delivering PowerShell scripts (Romeo*.ps1) and VBS files (Juliet*.vbs), followed by DLL sideloading via a malicious jli.dll placed in C:\\ProgramData\\USOShared and executed through legitimate Java processes. The campaign uses embedded payloads for defense evasion and communicates with C2 infrastructure at okobojirent[.]com. The sophisticated execution chain leverages multiple scripting languages (PowerShell, VBS, JavaScript) and file-based persistence mechanisms to evade detection before deploying the ransomware payload.",
+      "severity": "Critical",
+      "quality": "enriched",
+      "ioc_count": 14,
+      "ttp_count": 30,
+      "sigma_count": 5,
+      "snort_count": 5,
+      "query_count": 9,
+      "caldera_count": 5,
+      "enrichment_count": 3,
+      "enrichment_sources": [
+        {
+          "url": "https://www.rescana.com/post/leaknet-ransomware-exploits-clickfix-via-compromised-websites-to-attack-windows-environments-with-de",
+          "name": "rescana.com",
+          "text_length": 8000
+        },
+        {
+          "url": "https://mine2.io/blog/2025-08-18-leaknet-ransomware-swan-general-breach/",
+          "name": "mine2.io",
+          "text_length": 5377
+        },
+        {
+          "url": "https://reliaquest.com/blog/threat-spotlight-casting-a-wider-net-clickfix-deno-and-leaknets-scaling-threat",
+          "name": "reliaquest.com",
+          "text_length": 8000
+        }
+      ],
+      "iocs": [
+        {
+          "type": "filename",
+          "value": "Romeo*.ps1",
+          "confidence": "high",
+          "context": "PowerShell scripts cleverly named Romeo*.ps1 used to initiate the Deno process",
+          "source_url": "https://www.bleepingcomputer.com/news/security/leaknet-ransomware-uses-clickfix-and-deno-runtime-for-stealthy-attacks/"
+        },
+        {
+          "type": "filename",
+          "value": "Juliet*.vbs",
+          "confidence": "high",
+          "context": "Visual Basic Script cleverly named Juliet*.vbs used to initiate the Deno process",
+          "source_url": "https://www.bleepingcomputer.com/news/security/leaknet-ransomware-uses-clickfix-and-deno-runtime-for-stealthy-attacks/"
+        },
+        {
+          "type": "filename",
+          "value": "jli.dll",
+          "confidence": "high",
+          "context": "DLL sideloading using jli.dll loaded via Java in C:\\ProgramData\\USOShared",
+          "source_url": "https://www.bleepingcomputer.com/news/security/leaknet-ransomware-uses-clickfix-and-deno-runtime-for-stealthy-attacks/"
+        },
+        {
+          "type": "filepath",
+          "value": "C:\\ProgramData\\USOShared",
+          "confidence": "high",
+          "context": "DLL sideloading location where jli.dll is loaded via Java in C:\\ProgramData\\USOShared",
+          "source_url": "https://www.bleepingcomputer.com/news/security/leaknet-ransomware-uses-clickfix-and-deno-runtime-for-stealthy-attacks/"
+        },
+        {
+          "type": "domain",
+          "value": "okobojirent[.]com",
+          "confidence": "high",
+          "context": "The campaign's C2 infrastructure leverages both custom domains (e.g., okobojirent[.]com, mshealthmetrics[.]com) and cloud storage.",
+          "source_url": "https://www.rescana.com/post/leaknet-ransomware-exploits-clickfix-via-compromised-websites-to-attack-windows-environments-with-de",
+          "from_enrichment": true
+        },
+        {
+          "type": "domain",
+          "value": "mshealthmetrics[.]com",
+          "confidence": "high",
+          "context": "The campaign's C2 infrastructure leverages both custom domains (e.g., okobojirent[.]com, mshealthmetrics[.]com) and cloud storage.",
+          "source_url": "https://www.rescana.com/post/leaknet-ransomware-exploits-clickfix-via-compromised-websites-to-attack-windows-environments-with-de",
+          "from_enrichment": true
+        },
+        {
+          "type": "hash_sha256",
+          "value": "b37a3f93f9f5c9d3a9a1a2f0a2a8c933",
+          "confidence": "medium",
+          "context": "Ransomware loader (SHA-256) associated with past LeakNet campaigns",
+          "source_url": "https://mine2.io/blog/2025-08-18-leaknet-ransomware-swan-general-breach/",
+          "from_enrichment": true
+        },
+        {
+          "type": "hash_sha256",
+          "value": "c11f2a0a4b1a0a76bbf0d7d7f7ac445e",
+          "confidence": "medium",
+          "context": "Credential harvester (SHA-256) associated with past LeakNet campaigns",
+          "source_url": "https://mine2.io/blog/2025-08-18-leaknet-ransomware-swan-general-breach/",
+          "from_enrichment": true
+        },
+        {
+          "type": "domain",
+          "value": "leaknet[.]onion",
+          "confidence": "high",
+          "context": "Darknet leak site operated by LeakNet ransomware group",
+          "source_url": "https://mine2.io/blog/2025-08-18-leaknet-ransomware-swan-general-breach/",
+          "from_enrichment": true
+        },
+        {
+          "type": "ip",
+          "value": "185[.]234[.]217[.]99",
+          "confidence": "high",
+          "context": "Known C2 node used in LeakNet infrastructure (2025)",
+          "source_url": "https://mine2.io/blog/2025-08-18-leaknet-ransomware-swan-general-breach/",
+          "from_enrichment": true
+        },
+        {
+          "type": "ip",
+          "value": "103[.]145[.]13[.]72",
+          "confidence": "high",
+          "context": "Staging server for exfiltration used in LeakNet infrastructure (2025)",
+          "source_url": "https://mine2.io/blog/2025-08-18-leaknet-ransomware-swan-general-breach/",
+          "from_enrichment": true
+        },
+        {
+          "type": "filepath",
+          "value": "%AppData%\\Local\\Temp\\svhost[.]exe",
+          "confidence": "medium",
+          "context": "Dropped executable observed in LeakNet campaigns",
+          "source_url": "https://mine2.io/blog/2025-08-18-leaknet-ransomware-swan-general-breach/",
+          "from_enrichment": true
+        },
+        {
+          "type": "registry_key",
+          "value": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\svhost",
+          "confidence": "medium",
+          "context": "Registry modification used for persistence in LeakNet campaigns",
+          "source_url": "https://mine2.io/blog/2025-08-18-leaknet-ransomware-swan-general-breach/",
+          "from_enrichment": true
+        },
+        {
+          "type": "filepath",
+          "value": "USOShared",
+          "confidence": "high",
+          "context": "In every confirmed LeakNet incident, we observed the same post-exploitation chain: jli.dll side-loading into Java in the USOShared directory, PsExec-based lateral movement, and S3 bucket payload staging.",
+          "source_url": "https://reliaquest.com/blog/threat-spotlight-casting-a-wider-net-clickfix-deno-and-leaknets-scaling-threat",
+          "from_enrichment": true
+        }
+      ],
+      "ttps": [
+        {
+          "technique_id": "T1204.001",
+          "technique_name": "Malicious Link",
+          "tactic": "Execution",
+          "description": "ClickFix social engineering technique tricks users into running malicious commands through fake prompts",
+          "evidence": "ClickFix is a widely used social engineering attack that tricks users into running malicious commands on their systems through fake prompts",
+          "source_url": "https://www.bleepingcomputer.com/news/security/leaknet-ransomware-uses-clickfix-and-deno-runtime-for-stealthy-attacks/"
+        },
+        {
+          "technique_id": "T1059.001",
+          "technique_name": "PowerShell",
+          "tactic": "Execution",
+          "description": "PowerShell scripts used to initiate Deno runtime execution",
+          "evidence": "that process was initiated through Visual Basic Script (VBS) and PowerShell scripts, cleverly named Romeo*.ps1 and Juliet*.vbs",
+          "source_url": "https://www.bleepingcomputer.com/news/security/leaknet-ransomware-uses-clickfix-and-deno-runtime-for-stealthy-attacks/"
+        },
+        {
+          "technique_id": "T1059.005",
+          "technique_name": "Visual Basic",
+          "tactic": "Execution",
+          "description": "Visual Basic scripts used to initiate malicious payload execution",
+          "evidence": "that process was initiated through Visual Basic Script (VBS) and PowerShell scripts, cleverly named Romeo*.ps1 and Juliet*.vbs",
+          "source_url": "https://www.bleepingcomputer.com/news/security/leaknet-ransomware-uses-clickfix-and-deno-runtime-for-stealthy-attacks/"
+        },
+        {
+          "technique_id": "T1059.007",
+          "technique_name": "JavaScript",
+          "tactic": "Execution",
+          "description": "Deno runtime used to execute JavaScript payload directly in memory",
+          "evidence": "the attackers install the legitimate Deno executable and use it to run malicious code",
+          "source_url": "https://www.bleepingcomputer.com/news/security/leaknet-ransomware-uses-clickfix-and-deno-runtime-for-stealthy-attacks/"
+        },
+        {
+          "technique_id": "T1027.009",
+          "technique_name": "Embedded Payloads",
+          "tactic": "Defense Evasion",
+          "description": "Malicious payload decoded and executed directly into memory using Deno runtime",
+          "evidence": "using the legitimate Deno to decode and execute a malicious payload directly into system memory",
+          "source_url": "https://www.bleepingcomputer.com/news/security/leaknet-ransomware-uses-clickfix-and-deno-runtime-for-stealthy-attacks/"
+        },
+        {
+          "technique_id": "T1218",
+          "technique_name": "System Binary Proxy Execution",
+          "tactic": "Defense Evasion",
+          "description": "Legitimate Deno runtime abused to execute malicious code while bypassing blocklists",
+          "evidence": "Deno is signed and legitimate, so it bypasses blocklists and filters for unknown binary execution",
+          "source_url": "https://www.bleepingcomputer.com/news/security/leaknet-ransomware-uses-clickfix-and-deno-runtime-for-stealthy-attacks/"
+        },
+        {
+          "technique_id": "T1055",
+          "technique_name": "Process Injection",
+          "tactic": "Defense Evasion",
+          "description": "Malicious code executed directly in memory to minimize forensic artifacts",
+          "evidence": "The use of Deno for direct in-memory execution is key, as the activity leaves minimal forensic artifacts behind",
+          "source_url": "https://www.bleepingcomputer.com/news/security/leaknet-ransomware-uses-clickfix-and-deno-runtime-for-stealthy-attacks/"
+        },
+        {
+          "technique_id": "T1082",
+          "technique_name": "System Information Discovery",
+          "tactic": "Discovery",
+          "description": "Code fingerprints the host system during initial execution",
+          "evidence": "Once executed, the code fingerprints the host, generates a unique victim ID",
+          "source_url": "https://www.bleepingcomputer.com/news/security/leaknet-ransomware-uses-clickfix-and-deno-runtime-for-stealthy-attacks/"
+        },
+        {
+          "technique_id": "T1558.003",
+          "technique_name": "Kerberoasting",
+          "tactic": "Credential Access",
+          "description": "Credential discovery performed via klist enumeration",
+          "evidence": "credential discovery via 'klist' enumeration",
+          "source_url": "https://www.bleepingcomputer.com/news/security/leaknet-ransomware-uses-clickfix-and-deno-runtime-for-stealthy-attacks/"
+        },
+        {
+          "technique_id": "T1071.001",
+          "technique_name": "Web Protocols",
+          "tactic": "Command and Control",
+          "description": "Connects to C2 server to pull second-stage payload and runs persistent polling loop",
+          "evidence": "connects to the command-and-control (C2) to pull the second-stage payload. At the same time, it runs a persistent polling loop to receive new commands from the C2",
+          "source_url": "https://www.bleepingcomputer.com/news/security/leaknet-ransomware-uses-clickfix-and-deno-runtime-for-stealthy-attacks/"
+        },
+        {
+          "technique_id": "T1574.002",
+          "technique_name": "DLL Side-Loading",
+          "tactic": "Persistence",
+          "description": "DLL sideloading using jli.dll loaded via Java in unusual directory",
+          "evidence": "DLL sideloading (jli.dll loaded via Java in C:\\ProgramData\\USOShared)",
+          "source_url": "https://www.bleepingcomputer.com/news/security/leaknet-ransomware-uses-clickfix-and-deno-runtime-for-stealthy-attacks/"
+        },
+        {
+          "technique_id": "T1570",
+          "technique_name": "Lateral Tool Transfer",
+          "tactic": "Lateral Movement",
+          "description": "PsExec used for lateral movement within the network",
+          "evidence": "lateral movement via PsExec",
+          "source_url": "https://www.bleepingcomputer.com/news/security/leaknet-ransomware-uses-clickfix-and-deno-runtime-for-stealthy-attacks/"
+        },
+        {
+          "technique_id": "T1567.002",
+          "technique_name": "Exfiltration to Cloud Storage",
+          "tactic": "Exfiltration",
+          "description": "Amazon S3 buckets abused for data exfiltration",
+          "evidence": "payload staging and data exfiltration that involves abusing Amazon S3 buckets",
+          "source_url": "https://www.bleepingcomputer.com/news/security/leaknet-ransomware-uses-clickfix-and-deno-runtime-for-stealthy-attacks/"
+        },
+        {
+          "technique_id": "T1189",
+          "technique_name": "Drive-by Compromise",
+          "tactic": "Initial Access",
+          "description": "LeakNet gained initial access by compromising legitimate websites that delivered malicious payloads when users visited them",
+          "evidence": "Initial access is achieved through the ClickFix technique, wherein users visiting compromised legitimate websites are presented with fake security prompts",
+          "source_url": "https://www.rescana.com/post/leaknet-ransomware-exploits-clickfix-via-compromised-websites-to-attack-windows-environments-with-de",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1204.002",
+          "technique_name": "Malicious File",
+          "tactic": "Execution",
+          "description": "Users were tricked into executing malicious PowerShell and VBScript files through fake security prompts",
+          "evidence": "These prompts instruct users to execute a command\u2014often via msiexec\u2014that downloads and runs a signed script. The scripts, typically named Romeo*.ps1 (PowerShell) or Juliet*.vbs (VBScript)",
+          "source_url": "https://www.rescana.com/post/leaknet-ransomware-exploits-clickfix-via-compromised-websites-to-attack-windows-environments-with-de",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1218.007",
+          "technique_name": "Msiexec",
+          "tactic": "Defense Evasion",
+          "description": "The msiexec utility was abused to download and execute malicious scripts",
+          "evidence": "These prompts instruct users to execute a command\u2014often via msiexec\u2014that downloads and runs a signed script",
+          "source_url": "https://www.rescana.com/post/leaknet-ransomware-exploits-clickfix-via-compromised-websites-to-attack-windows-environments-with-de",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1027.010",
+          "technique_name": "Command Obfuscation",
+          "tactic": "Defense Evasion",
+          "description": "Base64 encoding was used to obfuscate malicious payloads",
+          "evidence": "The malicious payload, often base64-encoded, is executed directly in memory using Deno",
+          "source_url": "https://www.rescana.com/post/leaknet-ransomware-exploits-clickfix-via-compromised-websites-to-attack-windows-environments-with-de",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1087",
+          "technique_name": "Account Discovery",
+          "tactic": "Discovery",
+          "description": "Username information was collected during system fingerprinting",
+          "evidence": "The in-memory loader fingerprints the host by collecting system information such as username, hostname, available memory, and OS version",
+          "source_url": "https://www.rescana.com/post/leaknet-ransomware-exploits-clickfix-via-compromised-websites-to-attack-windows-environments-with-de",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1021.002",
+          "technique_name": "SMB/Windows Admin Shares",
+          "tactic": "Lateral Movement",
+          "description": "PsExec was used for lateral movement, which operates over SMB",
+          "evidence": "Post-exploitation activities include lateral movement through PsExec",
+          "source_url": "https://www.rescana.com/post/leaknet-ransomware-exploits-clickfix-via-compromised-websites-to-attack-windows-environments-with-de",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1104",
+          "technique_name": "Multi-Stage Channels",
+          "tactic": "Command and Control",
+          "description": "Second-stage payloads were retrieved from C2 infrastructure through a polling mechanism",
+          "evidence": "It establishes a persistent polling loop to a command-and-control (C2) server. The loader retrieves second-stage payloads, which are also executed in memory",
+          "source_url": "https://www.rescana.com/post/leaknet-ransomware-exploits-clickfix-via-compromised-websites-to-attack-windows-environments-with-de",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1190",
+          "technique_name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "description": "LeakNet gained initial access through exploitation of public-facing applications",
+          "evidence": "Initial Access: Exploitation of public-facing apps (T1190)",
+          "source_url": "https://mine2.io/blog/2025-08-18-leaknet-ransomware-swan-general-breach/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1566",
+          "technique_name": "Phishing",
+          "tactic": "Initial Access",
+          "description": "LeakNet used spear-phishing as an initial access vector",
+          "evidence": "Initial Access: Exploitation of public-facing apps (T1190), Spear-phishing (T1566)",
+          "source_url": "https://mine2.io/blog/2025-08-18-leaknet-ransomware-swan-general-breach/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1059",
+          "technique_name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "description": "LeakNet used PowerShell and scripting for execution",
+          "evidence": "Execution: PowerShell/Scripting (T1059)",
+          "source_url": "https://mine2.io/blog/2025-08-18-leaknet-ransomware-swan-general-breach/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1003",
+          "technique_name": "OS Credential Dumping",
+          "tactic": "Credential Access",
+          "description": "LeakNet performed LSASS dumping to harvest credentials",
+          "evidence": "Credential Access: LSASS dumping (T1003)",
+          "source_url": "https://mine2.io/blog/2025-08-18-leaknet-ransomware-swan-general-breach/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1547.001",
+          "technique_name": "Registry Run Keys / Startup Folder",
+          "tactic": "Persistence",
+          "description": "LeakNet established persistence through registry Run keys",
+          "evidence": "Registry modification \u2192 HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\svhost",
+          "source_url": "https://mine2.io/blog/2025-08-18-leaknet-ransomware-swan-general-breach/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1560",
+          "technique_name": "Archive Collected Data",
+          "tactic": "Collection",
+          "description": "LeakNet staged and compressed data before exfiltration",
+          "evidence": "Exfiltration: Staging & compression (T1560)",
+          "source_url": "https://mine2.io/blog/2025-08-18-leaknet-ransomware-swan-general-breach/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1041",
+          "technique_name": "Exfiltration Over C2 Channel",
+          "tactic": "Exfiltration",
+          "description": "LeakNet exfiltrated data over web and SMB protocols",
+          "evidence": "Exfiltration: Staging & compression (T1560), Exfiltration over Web/SMB (T1041)",
+          "source_url": "https://mine2.io/blog/2025-08-18-leaknet-ransomware-swan-general-breach/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1486",
+          "technique_name": "Data Encrypted for Impact",
+          "tactic": "Impact",
+          "description": "LeakNet encrypted files as part of their double extortion ransomware operations",
+          "evidence": "Impact: File encryption (T1486), Data exposure via leak portals",
+          "source_url": "https://mine2.io/blog/2025-08-18-leaknet-ransomware-swan-general-breach/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1657",
+          "technique_name": "Financial Theft",
+          "tactic": "Impact",
+          "description": "LeakNet operates a double extortion model threatening to leak stolen data unless ransom is paid",
+          "evidence": "Operates a 'double extortion' model: encrypt + exfiltrate + leak. Extortion Tactic: Threat to leak stolen data unless ransom paid",
+          "source_url": "https://mine2.io/blog/2025-08-18-leaknet-ransomware-swan-general-breach/",
+          "from_enrichment": true
+        },
+        {
+          "technique_id": "T1608.001",
+          "technique_name": "Upload Malware",
+          "tactic": "Resource Development",
+          "description": "LeakNet stages payloads in S3 buckets for deployment",
+          "evidence": "In every confirmed LeakNet incident, we observed the same post-exploitation chain: jli.dll side-loading into Java in the USOShared directory, PsExec-based lateral movement, and S3 bucket payload staging",
+          "source_url": "https://reliaquest.com/blog/threat-spotlight-casting-a-wider-net-clickfix-deno-and-leaknets-scaling-threat",
+          "from_enrichment": true
+        }
+      ],
+      "sigma_rules": [
+        {
+          "plain_english": "Detects when PowerShell scripts with the Romeo naming pattern are executed, which LeakNet ransomware uses to initiate the Deno runtime payload delivery process.",
+          "rule": "title: LeakNet Ransomware Romeo PowerShell Script Execution\nid: rule-0001\nstatus: experimental\ndescription: Detects execution of PowerShell scripts matching the Romeo*.ps1 naming pattern used by LeakNet ransomware to initiate Deno runtime process\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '\\powershell.exe'\n    CommandLine|contains: 'Romeo'\n    CommandLine|endswith: '.ps1'\n  condition: selection\nfalsepositives:\n  - Legitimate scripts with Romeo naming convention\nlevel: high",
+          "rule_hash": "ba587d33f8744ed7"
+        },
+        {
+          "plain_english": "Detects when VBScript files named Juliet are executed, which is the complementary script LeakNet uses alongside Romeo PowerShell scripts to launch their attack chain.",
+          "rule": "title: LeakNet Ransomware Juliet VBScript Execution\nid: rule-0002\nstatus: experimental\ndescription: Detects execution of VBScript files matching the Juliet*.vbs naming pattern used by LeakNet ransomware to initiate Deno runtime process\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith:\n      - '\\wscript.exe'\n      - '\\cscript.exe'\n    CommandLine|contains: 'Juliet'\n    CommandLine|endswith: '.vbs'\n  condition: selection\nfalsepositives:\n  - Legitimate VBScript files with Juliet naming\nlevel: high",
+          "rule_hash": "c9bdb77238ad899c"
+        },
+        {
+          "plain_english": "Detects when jli.dll is loaded from the USOShared directory, which is LeakNet's DLL sideloading technique to execute malicious code via legitimate Java processes.",
+          "rule": "title: LeakNet Ransomware DLL Sideloading in USOShared Directory\nid: rule-0003\nstatus: experimental\ndescription: Detects jli.dll sideloading from C:\\ProgramData\\USOShared directory used by LeakNet ransomware for persistence and execution\nlogsource:\n  product: windows\n  category: image_load\ndetection:\n  selection:\n    ImageLoaded|contains: '\\USOShared\\'\n    ImageLoaded|endswith: '\\jli.dll'\n  condition: selection\nfalsepositives:\n  - Unlikely, USOShared is not a standard Java location\nlevel: critical",
+          "rule_hash": "5a81e74cc4840b02"
+        },
+        {
+          "plain_english": "Detects when Deno runtime is used to execute base64-encoded or eval commands, which is how LeakNet loads its second-stage payload directly into memory to avoid file-based detection.",
+          "rule": "title: LeakNet Ransomware Deno Runtime Malicious Execution\nid: rule-0004\nstatus: experimental\ndescription: Detects Deno runtime executing suspicious commands including base64 decode or eval operations used by LeakNet ransomware for in-memory payload execution\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '\\deno.exe'\n    CommandLine|contains:\n      - 'eval'\n      - 'atob'\n      - 'base64'\n      - '--allow-all'\n      - '--allow-net'\n  condition: selection\nfalsepositives:\n  - Legitimate Deno development activities\nlevel: high",
+          "rule_hash": "1aa5ffe19fc845b2"
+        },
+        {
+          "plain_english": "Detects when the svhost.exe file is created in the user's Local Temp directory and then added to the Run registry key for persistence, which is a common LeakNet post-compromise behavior.",
+          "rule": "title: LeakNet Ransomware Persistence via Fake svhost Executable\nid: rule-0005\nstatus: experimental\ndescription: Detects creation and registry persistence of svhost.exe in AppData Local Temp directory used by LeakNet ransomware campaigns\nlogsource:\n  product: windows\n  category: registry_set\ndetection:\n  selection:\n    TargetObject|contains: '\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\'\n    TargetObject|endswith: '\\svhost'\n    Details|contains:\n      - '\\AppData\\Local\\Temp\\svhost.exe'\n      - '\\Local\\Temp\\svhost.exe'\n  condition: selection\nfalsepositives:\n  - None expected, svhost is a typo-squat of svchost\nlevel: critical",
+          "rule_hash": "196072783bb4980d"
+        }
+      ],
+      "snort_rules": [
+        {
+          "plain_english": "Detects HTTP traffic to the okobojirent domain which is a confirmed LeakNet command and control server used for second-stage payload delivery and victim communications.",
+          "rule": "alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS (msg:\"MALWARE LeakNet Ransomware C2 Domain okobojirent\"; flow:established,to_server; content:\"Host|3a|\"; nocase; content:\"okobojirent\"; fast_pattern; nocase; distance:0; classtype:trojan-activity; sid:9200001; rev:1; metadata:attack_target Client_Endpoint, deployment Perimeter, former_category MALWARE, signature_severity Major, created_at 2025-01-13, updated_at 2025-01-13, malware LeakNet;)",
+          "rule_hash": "e86ff49df1ebb355"
+        },
+        {
+          "plain_english": "Detects HTTP traffic to the mshealthmetrics domain which is a confirmed LeakNet C2 infrastructure used to coordinate ransomware operations and data exfiltration.",
+          "rule": "alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS (msg:\"MALWARE LeakNet Ransomware C2 Domain mshealthmetrics\"; flow:established,to_server; content:\"Host|3a|\"; nocase; content:\"mshealthmetrics\"; fast_pattern; nocase; distance:0; classtype:trojan-activity; sid:9200002; rev:1; metadata:attack_target Client_Endpoint, deployment Perimeter, former_category MALWARE, signature_severity Major, created_at 2025-01-13, updated_at 2025-01-13, malware LeakNet;)",
+          "rule_hash": "dcdc4f1045c28438"
+        },
+        {
+          "plain_english": "Detects any network connection to the known LeakNet C2 IP address used for command control and second-stage payload distribution during active ransomware campaigns.",
+          "rule": "alert ip $HOME_NET any -> 185.234.217.99 any (msg:\"MALWARE LeakNet Ransomware C2 IP 185.234.217.99\"; flow:to_server; classtype:trojan-activity; sid:9200003; rev:1; metadata:attack_target Client_Endpoint, deployment Perimeter, former_category MALWARE, signature_severity Critical, created_at 2025-01-13, updated_at 2025-01-13, malware LeakNet;)",
+          "rule_hash": "8dd21587c826cb2c"
+        },
+        {
+          "plain_english": "Detects any network connection to the LeakNet staging server IP used for data exfiltration before encryption, which indicates an active breach in progress.",
+          "rule": "alert ip $HOME_NET any -> 103.145.13.72 any (msg:\"MALWARE LeakNet Ransomware Staging Server IP 103.145.13.72\"; flow:to_server; classtype:trojan-activity; sid:9200004; rev:1; metadata:attack_target Client_Endpoint, deployment Perimeter, former_category MALWARE, signature_severity Critical, created_at 2025-01-13, updated_at 2025-01-13, malware LeakNet;)",
+          "rule_hash": "b96953e4a697d40e"
+        },
+        {
+          "plain_english": "Detects HTTP requests containing Deno user-agent strings combined with base64-encoded content in POST requests, which matches LeakNet's method of retrieving encrypted payloads from C2 servers.",
+          "rule": "alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS (msg:\"MALWARE LeakNet Ransomware Deno Runtime C2 Communication\"; flow:established,to_server; content:\"POST\"; http_method; content:\"Deno/\"; http_user_agent; fast_pattern; content:\"Content-Type|3a| application/\"; http_header; pcre:\"/[A-Za-z0-9+\\/]{50,}/P\"; classtype:trojan-activity; sid:9200005; rev:1; metadata:attack_target Client_Endpoint, deployment Perimeter, former_category MALWARE, signature_severity Major, created_at 2025-01-13, updated_at 2025-01-13, malware LeakNet;)",
+          "rule_hash": "f36d6501a69a1e1e"
+        }
+      ],
+      "hunting_queries": {
+        "splunk": [
+          {
+            "name": "LeakNet Romeo/Juliet Script Execution",
+            "description": "Detects PowerShell and VBScript files with Romeo/Juliet naming pattern used by LeakNet to initiate Deno runtime",
+            "query": "index=* (sourcetype=WinEventLog:Microsoft-Windows-Sysmon/Operational OR sourcetype=XmlWinEventLog:Microsoft-Windows-Sysmon/Operational) EventCode=1 (CommandLine=\"*Romeo*.ps1*\" OR CommandLine=\"*Juliet*.vbs*\" OR Image=\"*\\\\wscript.exe\" OR Image=\"*\\\\powershell.exe\") | eval script_pattern=case(match(CommandLine, \"Romeo.*\\.ps1\"), \"Romeo_PS1\", match(CommandLine, \"Juliet.*\\.vbs\"), \"Juliet_VBS\", 1=1, \"Other\") | stats count by Computer, User, CommandLine, ParentImage, script_pattern | where script_pattern IN (\"Romeo_PS1\", \"Juliet_VBS\")"
+          },
+          {
+            "name": "LeakNet DLL Sideloading via USOShared",
+            "description": "Detects jli.dll sideloading in C:\\ProgramData\\USOShared directory used by LeakNet for persistence",
+            "query": "index=* (sourcetype=WinEventLog:Microsoft-Windows-Sysmon/Operational OR sourcetype=XmlWinEventLog:Microsoft-Windows-Sysmon/Operational) (EventCode=1 OR EventCode=7) (CommandLine=\"*\\\\ProgramData\\\\USOShared*\" OR ImageLoaded=\"*\\\\USOShared\\\\jli.dll\" OR Image=\"*\\\\USOShared\\\\*\") | stats count by Computer, User, Image, CommandLine, ImageLoaded, ParentImage | where match(ImageLoaded, \"jli\\.dll\") OR match(CommandLine, \"USOShared\")"
+          },
+          {
+            "name": "LeakNet C2 Communication and Staging",
+            "description": "Detects network connections to known LeakNet C2 domains and IPs",
+            "query": "index=* (sourcetype=stream:dns OR sourcetype=stream:http OR sourcetype=bro:conn OR sourcetype=WinEventLog:Microsoft-Windows-Sysmon/Operational EventCode=3) (dest_ip=\"185.234.217.99\" OR dest_ip=\"103.145.13.72\" OR query=\"*okobojirent.com\" OR query=\"*mshealthmetrics.com\" OR url=\"*okobojirent.com*\" OR url=\"*mshealthmetrics.com*\") | stats count by src_ip, dest_ip, query, url, Computer | where isnotnull(dest_ip) OR isnotnull(query)"
+          }
+        ],
+        "kql": [
+          {
+            "name": "LeakNet Romeo/Juliet Script and Deno Execution Chain",
+            "description": "Detects execution of Romeo PowerShell or Juliet VBScript files followed by Deno runtime execution",
+            "query": "DeviceProcessEvents | where (FileName in~ ('powershell.exe', 'wscript.exe', 'cscript.exe') and (ProcessCommandLine has_any ('Romeo', 'Juliet') and ProcessCommandLine has_any ('.ps1', '.vbs'))) or (FileName =~ 'deno.exe' and InitiatingProcessFileName in~ ('powershell.exe', 'wscript.exe')) | extend ScriptType = case(ProcessCommandLine has 'Romeo' and ProcessCommandLine has '.ps1', 'Romeo_PowerShell', ProcessCommandLine has 'Juliet' and ProcessCommandLine has '.vbs', 'Juliet_VBScript', FileName =~ 'deno.exe', 'Deno_Runtime', 'Other') | project Timestamp, DeviceName, AccountName, FileName, ProcessCommandLine, InitiatingProcessFileName, InitiatingProcessCommandLine, ScriptType | where ScriptType != 'Other'"
+          },
+          {
+            "name": "LeakNet USOShared DLL Sideloading and Registry Persistence",
+            "description": "Detects jli.dll loading from USOShared directory and svhost registry persistence mechanism",
+            "query": "union (DeviceFileEvents | where FolderPath has 'ProgramData\\\\USOShared' and FileName =~ 'jli.dll'), (DeviceProcessEvents | where ProcessCommandLine has 'USOShared' or FolderPath has 'USOShared'), (DeviceRegistryEvents | where RegistryKey has 'CurrentVersion\\\\Run\\\\svhost' or RegistryValueName =~ 'svhost') | extend EventCategory = case(ActionType has 'FileCreated', 'FileCreation', ActionType has 'ProcessCreated', 'ProcessExecution', ActionType has 'RegistryValueSet', 'RegistryPersistence', 'Other') | project Timestamp, DeviceName, AccountName, FileName, FolderPath, ProcessCommandLine, RegistryKey, RegistryValueName, RegistryValueData, EventCategory"
+          },
+          {
+            "name": "LeakNet C2 Network Activity",
+            "description": "Detects network connections to known LeakNet C2 infrastructure including domains and IPs",
+            "query": "DeviceNetworkEvents | where RemoteIP in ('185.234.217.99', '103.145.13.72') or RemoteUrl has_any ('okobojirent.com', 'mshealthmetrics.com') | extend ThreatIndicator = case(RemoteIP == '185.234.217.99', 'C2_Node', RemoteIP == '103.145.13.72', 'Staging_Server', RemoteUrl has 'okobojirent', 'C2_Domain_1', RemoteUrl has 'mshealthmetrics', 'C2_Domain_2', 'Unknown') | project Timestamp, DeviceName, ActionType, RemoteIP, RemoteUrl, RemotePort, InitiatingProcessFileName, InitiatingProcessCommandLine, ThreatIndicator | where ThreatIndicator != 'Unknown'"
+          }
+        ],
+        "eql": [
+          {
+            "name": "LeakNet Script to Deno Execution Sequence",
+            "description": "Detects the execution sequence from Romeo/Juliet scripts to Deno runtime indicating LeakNet infection chain",
+            "query": "sequence by ComputerName with maxspan=5m [process where (event_simpleName=\"ProcessRollup2\" and (FileName=\"powershell.exe\" or FileName=\"wscript.exe\") and (CommandLine=\"*Romeo*.ps1*\" or CommandLine=\"*Juliet*.vbs*\"))] [process where (event_simpleName=\"ProcessRollup2\" and FileName=\"deno.exe\")]"
+          },
+          {
+            "name": "LeakNet DLL Sideload and Java Execution in USOShared",
+            "description": "Detects jli.dll sideloading via Java process execution from USOShared directory",
+            "query": "sequence by ComputerName with maxspan=2m [file where (event_simpleName=\"DllLoadModule\" and FilePath=\"*\\\\USOShared\\\\jli.dll\")] [process where (event_simpleName=\"ProcessRollup2\" and (FileName=\"java.exe\" or FileName=\"javaw.exe\") and CommandLine=\"*USOShared*\")]"
+          },
+          {
+            "name": "LeakNet Persistence and C2 Communication Chain",
+            "description": "Detects registry persistence creation followed by network connections to known LeakNet C2 infrastructure",
+            "query": "sequence by ComputerName with maxspan=10m [registry where (event_simpleName=\"RegSetValue\" and (RegObjectName=\"*\\\\CurrentVersion\\\\Run\\\\svhost\" or RegValueName=\"svhost\"))] [network where (event_simpleName=\"DnsRequest\" and (DomainName=\"*okobojirent.com\" or DomainName=\"*mshealthmetrics.com\")) or (event_simpleName=\"NetworkConnectIP4\" and (RemoteAddressIP4=\"185.234.217.99\" or RemoteAddressIP4=\"103.145.13.72\"))]"
+          }
+        ]
+      },
+      "caldera_scenario": {
+        "adversary": {
+          "id": "leaknet-ransomware",
+          "name": "LeakNet Ransomware",
+          "description": "LeakNet ransomware campaign leveraging ClickFix social engineering to trick users into executing malicious commands. The attack chain uses VBS and PowerShell scripts to deploy the Deno JavaScript runtime, which executes embedded payloads directly in memory while evading traditional detection mechanisms.",
+          "tags": [
+            "ransomware",
+            "social-engineering",
+            "clickfix",
+            "deno-runtime",
+            "memory-execution"
+          ],
+          "atomic_ordering": [
+            "leaknet-001",
+            "leaknet-002",
+            "leaknet-003",
+            "leaknet-004",
+            "leaknet-005"
+          ]
+        },
+        "abilities": [
+          {
+            "id": "leaknet-001",
+            "name": "ClickFix Social Engineering Simulation",
+            "plain_english": "Tests whether security awareness training and endpoint controls prevent users from copying and executing malicious commands from fake browser prompts - the ClickFix technique LeakNet uses to gain initial execution through user deception.",
+            "tactic": "execution",
+            "technique_id": "T1204.001",
+            "technique_name": "Malicious Link",
+            "ability_yaml": "- id: leaknet-001\n  name: ClickFix Social Engineering Simulation\n  description: Simulates ClickFix social engineering technique where users are tricked into running commands from fake prompts\n  tactic: execution\n  technique:\n    attack_id: T1204.001\n    name: Malicious Link\n  platforms:\n    windows:\n      psh:\n        command: |\n          Write-Host \"[SIM] User clicked fake browser prompt\"\n          Write-Host \"[SIM] Simulating ClickFix social engineering chain initiation\"\n          $simPath = \"$env:TEMP\\clickfix_sim.txt\"\n          \"ClickFix simulation executed\" | Out-File -FilePath $simPath\n        cleanup: |\n          Remove-Item -Path \"$env:TEMP\\clickfix_sim.txt\" -Force -ErrorAction SilentlyContinue\n          Write-Host \"[SIM] Cleanup: Removed ClickFix simulation artifacts\"",
+            "rule_hash": "33c3cb1ef5ce012e"
+          },
+          {
+            "id": "leaknet-002",
+            "name": "VBS Script Execution Chain",
+            "plain_english": "Tests whether endpoint detection identifies Visual Basic scripts with suspiciously themed names launching execution chains - LeakNet uses Juliet-themed VBS files to initiate the PowerShell payload delivery stage.",
+            "tactic": "execution",
+            "technique_id": "T1059.005",
+            "technique_name": "Visual Basic",
+            "ability_yaml": "- id: leaknet-002\n  name: VBS Script Execution Chain\n  description: Simulates Visual Basic script execution used by LeakNet (Juliet-themed VBS files)\n  tactic: execution\n  technique:\n    attack_id: T1059.005\n    name: Visual Basic\n  platforms:\n    windows:\n      psh:\n        command: |\n          Write-Host \"[SIM] Creating Juliet-themed VBS simulation\"\n          $vbsPath = \"$env:TEMP\\Juliet_sim.vbs\"\n          $vbsContent = @'\n          ' Simulation VBS\n          WScript.Echo \"[SIM] Juliet VBS executed\"\n          '@\n          $vbsContent | Out-File -FilePath $vbsPath -Encoding ASCII\n          Write-Host \"[SIM] VBS script chain simulated at: $vbsPath\"\n        cleanup: |\n          Remove-Item -Path \"$env:TEMP\\Juliet_sim.vbs\" -Force -ErrorAction SilentlyContinue\n          Write-Host \"[SIM] Cleanup: Removed VBS simulation file\"",
+            "rule_hash": "ee40c0f731b5b1cb"
+          },
+          {
+            "id": "leaknet-003",
+            "name": "PowerShell to Deno Runtime Deployment",
+            "plain_english": "Tests whether PowerShell script monitoring detects Romeo-themed scripts downloading and installing legitimate signed binaries like Deno runtime - LeakNet abuses this legitimate JavaScript runtime to bypass security controls.",
+            "tactic": "execution",
+            "technique_id": "T1059.001",
+            "technique_name": "PowerShell",
+            "ability_yaml": "- id: leaknet-003\n  name: PowerShell to Deno Runtime Deployment\n  description: Simulates PowerShell script (Romeo-themed) deploying Deno runtime as seen in LeakNet attacks\n  tactic: execution\n  technique:\n    attack_id: T1059.001\n    name: PowerShell\n  platforms:\n    windows:\n      psh:\n        command: |\n          Write-Host \"[SIM] Executing Romeo-themed PowerShell script\"\n          $psPath = \"$env:TEMP\\Romeo_sim.ps1\"\n          $psContent = @'\n          Write-Host \"[SIM] Romeo PowerShell executing\"\n          Write-Host \"[SIM] Simulating Deno runtime download and installation\"\n          Write-Host \"[SIM] Deno.exe would be placed in: $env:LOCALAPPDATA\\Deno\"\n          '@\n          $psContent | Out-File -FilePath $psPath\n          Write-Host \"[SIM] PowerShell deployment script created\"\n        cleanup: |\n          Remove-Item -Path \"$env:TEMP\\Romeo_sim.ps1\" -Force -ErrorAction SilentlyContinue\n          Write-Host \"[SIM] Cleanup: Removed PowerShell simulation script\"",
+            "rule_hash": "7f37cd3f08bcab9a"
+          },
+          {
+            "id": "leaknet-004",
+            "name": "Deno Runtime Proxy Execution with Embedded Payload",
+            "plain_english": "Tests whether security tools detect legitimate signed binaries like Deno being abused to decode and execute malicious JavaScript payloads directly in memory - LeakNet exploits this trusted runtime to bypass allowlists and minimize forensic artifacts.",
+            "tactic": "defense-evasion",
+            "technique_id": "T1218",
+            "technique_name": "System Binary Proxy Execution",
+            "ability_yaml": "- id: leaknet-004\n  name: Deno Runtime Proxy Execution with Embedded Payload\n  description: Simulates abuse of legitimate Deno runtime to execute embedded JavaScript payload in memory\n  tactic: defense-evasion\n  technique:\n    attack_id: T1218\n    name: System Binary Proxy Execution\n  platforms:\n    windows:\n      psh:\n        command: |\n          Write-Host \"[SIM] Simulating Deno runtime proxy execution\"\n          Write-Host \"[SIM] Deno.exe (legitimate signed binary) bypassing blocklists\"\n          Write-Host \"[SIM] Decoding embedded payload from Base64\"\n          $encodedPayload = \"Y29uc29sZS5sb2coJ1tTSU1dIE1hbGljaW91cyBKYXZhU2NyaXB0IHBheWxvYWQnKTs=\"\n          Write-Host \"[SIM] Executing JavaScript directly in memory via Deno runtime\"\n          Write-Host \"[SIM] Minimal forensic artifacts left behind\"\n          \"Deno proxy execution simulated\" | Out-File -FilePath \"$env:TEMP\\deno_sim.log\"\n        cleanup: |\n          Remove-Item -Path \"$env:TEMP\\deno_sim.log\" -Force -ErrorAction SilentlyContinue\n          Write-Host \"[SIM] Cleanup: Removed Deno execution simulation artifacts\"",
+            "rule_hash": "0b2be31deff914df"
+          },
+          {
+            "id": "leaknet-005",
+            "name": "System Fingerprinting and Credential Discovery",
+            "plain_english": "Tests whether security monitoring detects system reconnaissance commands including klist enumeration to discover Kerberos tickets - LeakNet fingerprints the victim host and enumerates credentials before establishing C2 communication.",
+            "tactic": "discovery",
+            "technique_id": "T1082",
+            "technique_name": "System Information Discovery",
+            "ability_yaml": "- id: leaknet-005\n  name: System Fingerprinting and Credential Discovery\n  description: Simulates host fingerprinting and klist credential enumeration used by LeakNet\n  tactic: discovery\n  technique:\n    attack_id: T1082\n    name: System Information Discovery\n  platforms:\n    windows:\n      psh:\n        command: |\n          Write-Host \"[SIM] Fingerprinting host system\"\n          Write-Host \"[SIM] Collecting system information for victim ID generation\"\n          $simInfo = @{\n            ComputerName = $env:COMPUTERNAME\n            UserName = $env:USERNAME\n            OSVersion = [System.Environment]::OSVersion.VersionString\n          }\n          Write-Host \"[SIM] System Info: $($simInfo | ConvertTo-Json -Compress)\"\n          Write-Host \"[SIM] Executing klist enumeration for credential discovery\"\n          Write-Host \"[SIM] klist.exe would enumerate Kerberos tickets\"\n          Write-Host \"[SIM] Preparing to establish C2 connection with fingerprint data\"\n          $simInfo | ConvertTo-Json | Out-File -FilePath \"$env:TEMP\\fingerprint_sim.json\"\n        cleanup: |\n          Remove-Item -Path \"$env:TEMP\\fingerprint_sim.json\" -Force -ErrorAction SilentlyContinue\n          Write-Host \"[SIM] Cleanup: Removed fingerprinting simulation data\"",
+            "rule_hash": "161bcff4509ab144"
+          }
+        ]
+      }
+    },
     {
       "id": 2,
       "title": "Nation-State Actors Exploit Notepad++ Supply Chain",
